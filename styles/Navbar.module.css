@@ -1,0 +1,27 @@
+.container {
+    background-color: orange;
+    padding: 10px;
+    color: white;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    font: 1.4rem;
+    margin: 0px;
+}
+
+.links {
+    width: 75%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+}
+
+.icon {
+    font-size: 1.2rem;
+}
