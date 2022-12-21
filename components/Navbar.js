@@ -1,21 +1,21 @@
 import Link from 'next/link';
 import styles from '../styles/Navbar.module.css';
 import { FiMenu } from 'react-icons/fi';
-import Sidenavbar from './Sidenavbar';
-import { useState } from 'react';
+// import Sidenavbar from './Sidenavbar';
+// import { useState } from 'react';
 
-const Navbar = () => {
-    const [toggle, setToggle] = useState(false);
+const Navbar = ({ handleToggle }) => {
+    // const [toggle, setToggle] = useState(false);
 
-    const handleToggle = () => {
-        setToggle(!toggle)
-    }
+    // const handleToggle = () => {
+    //     setToggle(!toggle)
+    // }
 
     return (
         <div className={styles.container}>
-            <h4 className={styles.title}>
+            <p className={styles.title}>
                 <Link href="/">Soteria</Link>
-            </h4>
+            </p>
 
             <ul className={styles.links}>
                 {/* <li>
@@ -42,7 +42,7 @@ const Navbar = () => {
                 <Link href="/campaigns">campaigns</Link>
             </div> */}
             <FiMenu className={styles.icon} onClick={handleToggle} />
-            <Sidenavbar toggle={toggle} />
+            {/* <Sidenavbar toggle={toggle} /> */}
         </div>
     );
 }

@@ -1,0 +1,35 @@
+.container {
+    height: 93vh;
+    width: 200px;
+    background-color: blanchedalmond;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.link {
+    margin: 15px 0px 15px 10px;
+}
+
+.main_link {
+    margin: 15px 0px 15px 10px;
+    display: none;
+}
+
+.link:hover,
+.main_link:hover {
+    background-color: rgba(255, 215, 228, 0.4);
+}
+
+@media screen and (max-width: 500px) {
+    .main_link {
+        display: block;
+    }
+}

@@ -1,5 +1,5 @@
 .container {
-    background-color: orange;
+    background-color: #000;
     padding: 10px;
     color: white;
     height: 6vh;
@@ -24,4 +24,10 @@
 
 .icon {
     font-size: 1.2rem;
+}
+
+@media screen and (max-width: 500px) {
+    .links {
+        display: none;
+    }
 }
