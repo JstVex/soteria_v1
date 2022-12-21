@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl';
 import Link from 'next/link';
+import styles from '../../styles/DonationMain.module.css'
 
 const Donations = () => {
     mapboxgl.accessToken = 'pk.eyJ1IjoianN0LXZleCIsImEiOiJjbGJrOGN1YWkwMTY0M3BtaTk0MWd2aHlyIn0.Mv5ONmGWa14gNiJqEHPxXw';
@@ -14,7 +15,7 @@ const Donations = () => {
         if (map.current) return;
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
-            style: 'mapbox://styles/mapbox/light-v11',
+            style: 'mapbox://styles/mapbox/dark-v11',
             center: [lng, lat],
             zoom: zoom
         });
@@ -169,8 +170,7 @@ const Donations = () => {
         });
     });
     return (
-
-        <div className="donations">
+        <div className={styles.container}>
             <div ref={mapContainer} className="map-container" />
             <p>donations</p>
         </div>

@@ -1,0 +1,45 @@
+.container {
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; */
+}
+
+.header {
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.image {
+    opacity: 0.7;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.title {
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    font-size: 3rem;
+    color: #fff;
+}
+
+.heading {
+    text-align: center;
+    margin: 20px 0px 20px 0px;
+}
+
+.heading_content {
+    border-bottom: 1px solid;
+    font-size: 1.3rem;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
