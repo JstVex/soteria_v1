@@ -5,10 +5,6 @@ import Latestchannels from '../../components/LatestChannels';
 
 const Youtube = ({ channels }) => {
     const [utube, setUtube] = useState('');
-
-    // const chooseWebsite = async () => {
-
-    // }
     console.log(channels)
 
     return (
@@ -35,12 +31,12 @@ const Youtube = ({ channels }) => {
                         <option value="PaDayTharPin">padaytharpin</option>
                     </select>
                     <button className={styles.button}>
-                        <Link href={`/websites/${utube.toLowerCase()}`} >go</Link>
+                        <Link href={`/youtube/${utube.toLowerCase()}`} >go</Link>
                     </button>
                 </div>
             </div>
             <div className={styles.heading}>
-                Latest posts from all channels
+                Latest videos from all channels
             </div>
             <div className={styles.content}>
                 {channels && channels.map((channel) => {
