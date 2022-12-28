@@ -16,7 +16,7 @@ const Youtube = ({ channels }) => {
                 <label htmlFor='channels' className={styles.label}>
                     Choose a youtube channel:
                 </label>
-                <div className={styles.wrapper}>
+                <div className={styles.wrap}>
                     <select
                         name="channels"
                         id="channels"

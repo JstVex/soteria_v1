@@ -3,16 +3,15 @@ import Posts from "../../components/Posts";
 
 const Weclick4pdf = ({ posts }) => {
     console.log(posts)
+    let slide = -1;
     return (
         <div className={styles.container} >
             <div className={styles.header}>
                 <p className={styles.website}>{posts[0].website.toUpperCase()}</p>
             </div>
-            <div className={styles.heading}>
-                <p>Activity</p>
-            </div>
             {posts && posts.map((post) => {
-                return <Posts post={post} key={post._id} />
+                slide++;
+                return <Posts post={post} key={post._id} slide={slide} />
             })}
         </div >
     );
