@@ -12,10 +12,10 @@ const Sidenavbar = ({ toggle }) => {
                 <Link href="/youtube" className={styles.main_link}>youtube</Link>
                 <Link href="/donations" className={styles.main_link}>donations</Link>
                 <Link href="/campaigns" className={styles.main_link}>campaigns</Link>
-                <Link href='/profile' className={styles.link}>Profile</Link>
+                {/* <Link href='/profile' className={styles.link}>Profile</Link>
                 <Link href='/contribute' className={styles.link}>Contribute</Link>
                 <Link href='/login' className={styles.link}>Login / SignUp</Link>
-                <p className={styles.link}>Theme</p>
+                <p className={styles.link}>Theme</p> */}
             </div>
         </div>
     );
