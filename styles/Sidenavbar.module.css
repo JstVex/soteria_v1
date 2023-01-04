@@ -1,11 +1,12 @@
 .container {
-    height: 93vh;
+    height: 100vh;
     width: 200px;
-    background-color: blanchedalmond;
+    background-color: rgb(0, 0, 0);
+    color: white;
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 1;
+    z-index: 3;
 }
 
 .links {
@@ -16,20 +17,30 @@
 
 .link {
     margin: 15px 0px 15px 10px;
+    transition: all 500ms;
 }
 
 .main_link {
     margin: 15px 0px 15px 10px;
     display: none;
+    transition: all 500ms;
 }
 
 .link:hover,
 .main_link:hover {
-    background-color: rgba(255, 215, 228, 0.4);
+    color: orange;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .main_link {
         display: block;
     }
+}
+
+@media screen and (min-width: 600px) {
+    .container {
+        display: none;
+        height: 0vh;
+    }
+
 }

@@ -1,11 +1,11 @@
 /* .container {} */
 
 .header {
-    height: 20vh;
+    height: 15vh;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid orange;
     width: 95%;
     margin: 0px auto;
 }
@@ -48,14 +48,12 @@
     color: #fff;
     background-color: black;
     transition: all 500ms;
-    border: 1px solid orange;
 }
 
 .select:focus {
     color: #fff;
     background-color: black;
     transition: all 500ms;
-    border: 1px solid orange;
 }
 
 
@@ -72,12 +70,11 @@
 .button:hover {
     background-color: #000;
     color: #fff;
-    border: 1px solid orange;
 }
 
 .heading {
     text-align: center;
-    padding: 30px 0px 20px 0px;
+    padding: 30px 0px 30px 0px;
     font-size: 1.2rem;
 }
 

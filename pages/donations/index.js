@@ -15,12 +15,12 @@ const Donations = () => {
         if (map.current) return;
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
-            style: 'mapbox://styles/mapbox/dark-v11',
+            style: 'mapbox://styles/mapbox/light-v11',
             center: [lng, lat],
             zoom: zoom
         });
 
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({ color: 'orange' })
             .setLngLat([97.491926, 26.020766])
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -30,7 +30,7 @@ const Donations = () => {
             )
             .addTo(map.current);
 
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({ color: 'orange' })
             .setLngLat([96.199379, 16.871311])
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -40,7 +40,7 @@ const Donations = () => {
             )
             .addTo(map.current);
 
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({ color: 'orange' })
             .setLngLat([97.9593, 16.9459])
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -50,7 +50,7 @@ const Donations = () => {
             )
             .addTo(map.current);
 
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({ color: 'orange' })
             .setLngLat([97.374800891, 19.234085732])
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -60,7 +60,7 @@ const Donations = () => {
             )
             .addTo(map.current);
 
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({ color: 'orange' })
             .setLngLat([93.581269, 22.389675])
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -70,7 +70,7 @@ const Donations = () => {
             )
             .addTo(map.current);
 
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({ color: 'orange' })
             .setLngLat([97.6982, 16.3003])
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -80,7 +80,7 @@ const Donations = () => {
             )
             .addTo(map.current);
 
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({ color: 'orange' })
             .setLngLat([93.5813, 20.1041])
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -90,7 +90,7 @@ const Donations = () => {
             )
             .addTo(map.current);
 
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({ color: 'orange' })
             .setLngLat([98.1339, 22.0362])
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -100,7 +100,7 @@ const Donations = () => {
             )
             .addTo(map.current);
 
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({ color: 'orange' })
             .setLngLat([96.0891, 21.9588])
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -110,7 +110,7 @@ const Donations = () => {
             )
             .addTo(map.current);
 
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({ color: 'orange' })
             .setLngLat([96.4663, 17.8221])
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -120,7 +120,7 @@ const Donations = () => {
             )
             .addTo(map.current);
 
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({ color: 'orange' })
             .setLngLat([94.9455, 20.1544])
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -130,7 +130,7 @@ const Donations = () => {
             )
             .addTo(map.current);
 
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({ color: 'orange' })
             .setLngLat([95.1621, 22.9160])
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -140,7 +140,7 @@ const Donations = () => {
             )
             .addTo(map.current);
 
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({ color: 'orange' })
             .setLngLat([95.2267, 17.0342])
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -150,7 +150,7 @@ const Donations = () => {
             )
             .addTo(map.current);
 
-        new mapboxgl.Marker()
+        new mapboxgl.Marker({ color: 'orange' })
             .setLngLat([99.0129, 12.4707])
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -172,7 +172,7 @@ const Donations = () => {
     return (
         <div className={styles.container}>
             <div ref={mapContainer} className="map-container" />
-            <p>donations</p>
+            <p className={styles.heading}>donations</p>
         </div>
     );
 }

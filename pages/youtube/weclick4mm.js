@@ -6,7 +6,7 @@ const Weclick4mm = ({ vids }) => {
         <div className={styles.container} >
             <div className={styles.header}>
                 <img src={vids[0].pfp} alt="" className={styles.pfp} />
-                <div className={styles.wrapper}>
+                <div className={styles.wrap}>
                     <span className={styles.channel}>{vids[0].channel.toUpperCase()}</span>
                     <span className={styles.subs}>{vids[0].subs}</span>
                 </div>

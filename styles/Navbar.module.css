@@ -1,20 +1,28 @@
 .container {
-    background-color: #000;
+    background-color: rgb(255, 255, 255);
     padding: 10px;
-    color: white;
-    height: 6vh;
+    color: rgb(0, 0, 0);
+    height: 8vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* border-bottom: solid 1px orange; */
 }
 
 .title {
-    font: 1.4rem;
-    margin: 0px;
+    font-family: 'Merienda', cursive;
+    margin: 0px 0px 0px 5px;
+    color: orange;
+    font-size: 2rem;
+    font-weight: 600;
+    transition: all 500ms;
+}
+
+.title:hover {
+    font-size: 2.2rem;
 }
 
 .links {
-    width: 75%;
     list-style: none;
     display: flex;
     align-items: center;
@@ -22,12 +30,37 @@
     margin: 0;
 }
 
-.icon {
-    font-size: 1.2rem;
+.link {
+    transition: all 500ms;
+    margin: 0px 20px;
 }
 
-@media screen and (max-width: 500px) {
+.link:hover {
+    color: rgb(255, 255, 255);
+    background-color: orange;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.icon {
+    font-size: 1.5rem;
+    display: none;
+    cursor: pointer;
+    transition: all 500ms;
+}
+
+.icon:hover {
+    font-size: 1.8rem;
+    color: orange;
+}
+
+@media screen and (max-width: 600px) {
     .links {
         display: none;
     }
+
+    .icon {
+        display: block;
+    }
+
 }

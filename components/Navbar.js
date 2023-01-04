@@ -21,16 +21,16 @@ const Navbar = ({ handleToggle }) => {
                 {/* <li>
                     <Link href="/">home</Link>
                 </li> */}
-                <li>
+                <li className={styles.link}>
                     <Link href="/websites">websites</Link>
                 </li>
-                <li>
+                <li className={styles.link}>
                     <Link href="/youtube">youtube</Link>
                 </li>
-                <li>
+                <li className={styles.link}>
                     <Link href="/donations">donations</Link>
                 </li>
-                <li>
+                <li className={styles.link}>
                     <Link href="/campaigns">campaigns</Link>
                 </li>
             </ul>
