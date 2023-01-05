@@ -1,6 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react';
+import { BsGlobe2 } from "react-icons/bs";
+import { AiOutlineAppstore, AiOutlineYoutube } from "react-icons/ai";
+import { GrGamepad } from "react-icons/gr";
+import { CgGames } from "react-icons/cg"
+import { BiDonateHeart } from "react-icons/bi";
+import { MdOutlineCampaign } from "react-icons/md"
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -26,7 +32,7 @@ export default function Home() {
       else {
         setCurrentIndex(currentIndex + 3);
       }
-    }, 2000)
+    }, 3000)
 
     // return () => clearInterval(intervalId);
   }, [currentIndex])
@@ -112,19 +118,30 @@ export default function Home() {
 
       {/* <div className={styles.snap}> */}
       <div className={styles.part3_container}>
-        <div>
-          <p className={styles.title}>
+        <div className={styles.title_div}>
+          <span className={styles.title_span}>
             So what can we do now?
-          </p>
-          <p className={styles.text}>
-            Fortunately, lots of talented and courgeous people here has invented many ways to get much help as possible. These includes apps, games, websites, youtube channels, donations and campaigns and many more.
-          </p>
+          </span>
+        </div>
+        <p className={styles.text}>
+          Fortunately, lots of talented and courgeous people here has invented many ways to get much help as possible. These includes apps, games, websites, youtube channels, donations, campaigns and many more.
+        </p>
+        <div className={styles.icons}>
+          <AiOutlineAppstore className={styles.icon} />
+          <CgGames className={styles.icon} />
+          <BsGlobe2 className={styles.icon} />
+          <AiOutlineYoutube className={styles.icon} />
+          <BiDonateHeart className={styles.icon} />
+          <MdOutlineCampaign className={styles.icon} />
         </div>
       </div>
       <div className={styles.app}>
-        <p className={styles.header}>
-          Apps and games
-        </p>
+        <div className={styles.header}>
+          <span className={styles.topic}>
+            Apps and games
+          </span>
+        </div>
+
         <div className={styles.content}>
           <div className={styles.paragraph}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum eveniet quod saepe, minima ut natus. Expedita tempore eligendi aliquid inventore, aperiam id? Eius impedit aspernatur necessitatibus expedita nobis nemo ipsa?
@@ -143,9 +160,11 @@ export default function Home() {
       </div>
 
       <div className={styles.website}>
-        <p className={styles.header}>
-          Websites
-        </p>
+        <div className={styles.header}>
+          <span className={styles.topic}>
+            Websites
+          </span>
+        </div>
         <div className={styles.content_reverse}>
           <div className={styles.wrap} onMouseLeave={handleDisappear}>
             <Link href="/websites/weclick4pdf">
@@ -168,20 +187,34 @@ export default function Home() {
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolores non saepe perferendis, soluta voluptates adipisci fugiat ducimus ratione sunt est sed blanditiis id. Magni eos perferendis rem neque nam?
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio nobis nulla accusantium vero necessitatibus vitae sint placeat hic earum incidunt aperiam nisi, atque assumenda consectetur mollitia voluptatum ex? Dignissimos, ipsam!
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia earum esse aliquam nisi ipsum rerum tenetur, omnis culpa fuga laudantium veritatis repudiandae doloribus beatae modi. Optio sapiente quae quibusdam alias.
+            <div className={styles.group}>
+              <Link href="/websites">
+                <button className={styles.visit_btn}>visit all websites</button>
+              </Link>
+              <button className={styles.visit_btn}>learn more here</button>
+            </div>
           </div>
         </div>
       </div>
 
       <div className={styles.youtube}>
-        <p className={styles.header}>
-          Youtube channels
-        </p>
+        <div className={styles.header}>
+          <span className={styles.topic}>
+            Youtube channels
+          </span>
+        </div>
         <div className={styles.content}>
           <div className={styles.paragraph}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum eveniet quod saepe, minima ut natus. Expedita tempore eligendi aliquid inventore, aperiam id? Eius impedit aspernatur necessitatibus expedita nobis nemo ipsa?
             Lorem ipsum dolor sit amet consectetur adipisicing elit. In labore quae aperiam voluptas ipsum quasi earum amet quibusdam? Sapiente aspernatur quidem blanditiis dolorem illum ut commodi beatae aperiam aut magnam.
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolores non saepe perferendis, soluta voluptates adipisci fugiat ducimus ratione sunt est sed blanditiis id. Magni eos perferendis rem neque nam?
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores beatae ipsum fugit doloribus dolore reprehenderit dolor enim nihil ratione? Eveniet quasi voluptatem adipisci eos, asperiores nesciunt nihil libero consequuntur quis.
+            <div className={styles.group}>
+              <Link href="/youtube">
+                <button className={styles.visit_btn}>visit all channels</button>
+              </Link>
+              <button className={styles.visit_btn}>learn more here</button>
+            </div>
           </div>
           <div className={styles.wrap}>
             <div className={styles.logos}>
