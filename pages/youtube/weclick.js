@@ -21,7 +21,7 @@ const Weclick = ({ vids }) => {
     );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     const res = await fetch(`https://soteria-backend-alc9.onrender.com/channels/weclick`);
     const vids = await res.json();
     return { props: { vids } }
