@@ -1,8 +1,7 @@
-import { Suspense, useState } from 'react';
+import { useState } from 'react';
 import styles from '../../styles/WebAndUtube.module.css'
 import Link from 'next/link';
 import Latestchannels from '../../components/LatestChannels';
-import Loading from './loading';
 
 const Youtube = ({ channels }) => {
     const [utube, setUtube] = useState('');
@@ -39,14 +38,11 @@ const Youtube = ({ channels }) => {
             <div className={styles.heading}>
                 Latest videos from all channels
             </div>
-            <Suspense fallback={<Loading />}>
-                <div className={styles.content}>
-                    {channels && channels.map((channel) => {
-                        return <Latestchannels channel={channel} key={channel._id} />
-                    })}
-                </div>
-            </Suspense>
-
+            <div className={styles.content}>
+                {channels && channels.map((channel) => {
+                    return <Latestchannels channel={channel} key={channel._id} />
+                })}
+            </div>
 
 
         </div>

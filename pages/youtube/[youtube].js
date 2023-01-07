@@ -1,7 +1,7 @@
 import styles from "../../styles/Channel.module.css";
 import Videos from "../../components/Videos";
 
-const Weclick = ({ vids }) => {
+const Youtube = ({ vids }) => {
     return (
         <div className={styles.container} >
             <div className={styles.header}>
@@ -21,10 +21,18 @@ const Weclick = ({ vids }) => {
     );
 }
 
-export async function getStaticProps() {
-    const res = await fetch(`https://soteria-backend-alc9.onrender.com/channels/padaytharpin`);
-    const vids = await res.json();
+export async function getStaticPaths() {
+    return {
+        paths: [{ params: { youtube: 'weclick' } }, { params: { youtube: 'weclick4mm' } }, { params: { youtube: 'raungni' } }, { params: { youtube: 'padaytharpin' } }],
+        fallback: false,
+    }
+}
+
+export async function getStaticProps({ params }) {
+    const res = await fetch(`https://soteria-backend-alc9.onrender.com/channels/${params.youtube}`)
+    const vids = await res.json()
+
     return { props: { vids } }
 }
 
-export default Weclick;
+export default Youtube;
