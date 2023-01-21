@@ -1,8 +1,6 @@
 .container {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-    height: 92vh;
-
 }
 
 /* .first_section {
@@ -17,7 +15,7 @@
 
 .first_section {
     background-color: rgb(255, 255, 255);
-    min-height: 100vh;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -25,7 +23,7 @@
 }
 
 .texts {
-    padding: 0px 30px;
+    padding: 40px;
     text-align: center;
 }
 
@@ -36,12 +34,32 @@
 
 .subtext {
     font-size: 1.1rem;
+    line-height: 1.5rem;
     font-weight: 300;
+    margin: 30px 0px;
+}
+
+.button {
+    margin: 0 auto;
+    background-color: white;
+    color: black;
+    border: 1px solid orange;
+    padding: 15px;
+    transition: all 500ms;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-family: 'Roboto', 'serif';
+    font-weight: 300;
+}
+
+.button:hover {
+    background-color: orange;
+    color: white;
 }
 
 .imgs {
     display: flex;
-
+    margin: 0px 0px 15px 0px;
 }
 
 .img1,
@@ -139,6 +157,18 @@
     font-weight: 400;
 }
 
+.map_heading {
+    text-align: center;
+    padding: 30px;
+    font-size: 1.5rem;
+    color: rgb(34, 34, 34);
+}
+
+.map_heading_span {
+    background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=orange);
+    padding: 8px 32px;
+}
+
 .forth_section {
     padding: 60px 40px;
 }
@@ -164,12 +194,78 @@
     font-weight: 300;
 }
 
-.form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+@media screen and (max-width: 768px) {
+    .heading {
+        font-size: 2.5rem;
+    }
 
-.error {
-    border: 5px solid rgb(193, 25, 25);
+    .second_section_ammo,
+    .second_section_refugee,
+    .second_section_cdm {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 35px 20px;
+    }
+
+    .wrap {
+        margin: auto 0;
+        text-align: center;
+        padding: 0px 0px 0px 0px;
+    }
+
+    .wrap2 {
+        margin: auto 0;
+        text-align: center;
+        padding: 0px 0px 0px 0px;
+    }
+
+    .title {
+        font-size: 2rem;
+        font-weight: 400;
+        padding: 0px 0px 20px 0px;
+
+    }
+
+    .text {
+        padding: 10px 0px;
+        font-weight: 300;
+        line-height: 1.4rem;
+    }
+
+    .img {
+        display: none;
+    }
+
+    .map_heading_span {
+        font-size: 1.1rem;
+        padding: 8px 20px;
+    }
+
+    .flex {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .card {
+        width: 270px;
+        height: 275px;
+        margin: 30px 30px;
+    }
+
+    .forth_section {
+        padding: 50px 20px;
+    }
+
+    .add {
+        width: 100%;
+        padding: 10px 20px 40px 20px;
+        margin: 0px;
+        text-align: center;
+    }
+
+    .flex2 {
+        flex-direction: column;
+        justify-content: center;
+    }
 }

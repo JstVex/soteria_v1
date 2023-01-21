@@ -1,9 +1,9 @@
-.container {
-    /* position: absolute;
+/* .container {
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%; */
-}
+    width: 100%;
+} */
 
 .header {
     height: 70vh;
@@ -42,4 +42,24 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
+}
+
+.goback {
+    display: flex;
+    align-items: center;
+    transition: all 500ms;
+}
+
+.goback:hover {
+    color: orange;
+}
+
+.gobackicon {
+    font-size: 1.2rem;
+    margin: 5px 3px 0px 8px;
+}
+
+.gobacktext {
+    font-weight: 300;
+    margin: 5px 5px 0px 3px;
 }
