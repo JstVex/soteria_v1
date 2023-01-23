@@ -1,11 +1,12 @@
 import Donation from '../../components/Donation';
 import styles from '../../styles/Donations.module.css'
 import Modal from '../../components/Modal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { BiArrowBack } from 'react-icons/bi'
 import { RiArrowGoBackFill } from "react-icons/ri"
 import Link from 'next/link';
 
-const Yangon = ({ donations }) => {
+const Location = ({ donations, locationUrl }) => {
     const [selectedTitle, setSelectedTitle] = useState(null);
     const [selectedImg, setSelectedImg] = useState(null);
     const [selectedStartDate, setSelectedStartDate] = useState(null);
@@ -16,12 +17,25 @@ const Yangon = ({ donations }) => {
     const [selectedUrl, setSelectedUrl] = useState(null);
     const [selectedPayment, setSelectedPayment] = useState(null);
 
-    console.log(donations)
+
+    const [count, setCount] = useState(0);
+    console.log(donations.length)
+
+    useEffect(() => {
+        for (let i = 0; i <= donations.length; i++) {
+            setCount(i);
+        }
+    }, [])
+
+    // console.log(donations)
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <img src="https://dsm01pap007files.storage.live.com/y4mq5siKMJ_7wZGjlsco7mGG1W523cQaNl79CM_CT40M9gHMvhRseTshSjsCJu72xdvCvaBaPlJtjzShC44aC8lMG-AS5aNGX042nqOaGOFKjShVx7bAYiuhB2Zq2qvzRbQvM00EfS3toRjVvf5TgVG_N0QSUD2R3KB66197QrCeg5a_Heiv3nKJgyR8R3E4jbo?width=1840&height=1226&cropmode=none" alt="" className={styles.image} />
-                <p className={styles.title}>Yangon</p>
+                {/* <img src="https://dsm01pap007files.storage.live.com/y4mq5siKMJ_7wZGjlsco7mGG1W523cQaNl79CM_CT40M9gHMvhRseTshSjsCJu72xdvCvaBaPlJtjzShC44aC8lMG-AS5aNGX042nqOaGOFKjShVx7bAYiuhB2Zq2qvzRbQvM00EfS3toRjVvf5TgVG_N0QSUD2R3KB66197QrCeg5a_Heiv3nKJgyR8R3E4jbo?width=1840&height=1226&cropmode=none" alt="" className={styles.image} />
+                <p className={styles.title}>Donation</p> */}
+                <span className={styles.title}>{locationUrl}</span>
+                <span className={styles.count}>{count} available posts</span>
+
             </div>
             <Link href='/donations' className={styles.goback}>
                 <RiArrowGoBackFill className={styles.gobackicon} />
@@ -42,10 +56,25 @@ const Yangon = ({ donations }) => {
     );
 }
 
-export async function getServerSideProps() {
-    const res = await fetch(`https://soteria-backend-alc9.onrender.com/donations/yangon`)
-    const donations = await res.json()
-    return { props: { donations } }
+export async function getStaticPaths() {
+    return {
+        paths: [{ params: { location: 'kachin' } }, { params: { location: 'kayah' } }, { params: { location: 'kayin' } }, { params: { location: 'chin' } }, { params: { location: 'mon' } }, { params: { location: 'rakhine' } }, { params: { location: 'shan' } }, { params: { location: 'ayeyarwady' } }, { params: { location: 'bago' } }, { params: { location: 'magway' } }, { params: { location: 'mandalay' } }, { params: { location: 'sagaing' } }, { params: { location: 'tanintharyi' } }, { params: { location: 'yangon' } }],
+        fallback: false,
+    }
 }
 
-export default Yangon;
+export async function getStaticProps({ params }) {
+    const res = await fetch(`https://soteria-backend-alc9.onrender.com/donations/${params.location}`)
+    const donations = await res.json()
+    let locationUrl = params.location
+
+    return { props: { donations: donations, locationUrl: locationUrl } }
+}
+
+// export async function getServerSideProps() {
+//     const res = await fetch(`https://soteria-backend-alc9.onrender.com/donations/yangon`)
+//     const donations = await res.json()
+//     return { props: { donations } }
+// }
+
+export default Location;
