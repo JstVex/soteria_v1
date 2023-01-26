@@ -176,10 +176,17 @@
 .flex2 {
     display: flex;
     align-items: center;
+    flex-direction: column;
+}
+
+.flex3 {
+    display: flex;
+    align-items: center;
 }
 
 .add {
-    padding: 0px 40px 0px 0px;
+    text-align: center;
+    padding: 20px 0px 50px 0px;
     width: 50%;
     margin: auto 0px;
 }
@@ -242,17 +249,6 @@
         padding: 8px 20px;
     }
 
-    .flex {
-        flex-direction: column;
-        margin-top: 20px;
-    }
-
-    .card {
-        width: 270px;
-        height: 275px;
-        margin: 30px 30px;
-    }
-
     .forth_section {
         padding: 50px 20px;
     }
@@ -267,5 +263,25 @@
     .flex2 {
         flex-direction: column;
         justify-content: center;
+    }
+
+
+}
+
+@media screen and (max-width: 975px) {
+
+    .flex {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .card {
+        width: 270px;
+        height: 275px;
+        margin: 30px 30px;
+    }
+
+    .flex3 {
+        flex-direction: column;
     }
 }
