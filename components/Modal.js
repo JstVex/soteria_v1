@@ -1,7 +1,7 @@
 import styles from "../styles/Modal.module.css"
 import { motion } from "framer-motion"
 
-const Modal = ({ setSelectedTitle, selectedTitle, selectedImg, selectedDate, selectedText, selectedName, selectedUrl }) => {
+const Modal = ({ setSelectedTitle, selectedTitle, selectedImg, selectedStartDate, selectedEndDate, selectedText, selectedName, selectedTarget, selectedUrl, selectedPayment }) => {
     const handleDisappear = (e) => {
         if (e.target.classList.contains('backdrop')) {
             setSelectedTitle(null)
@@ -29,19 +29,21 @@ const Modal = ({ setSelectedTitle, selectedTitle, selectedImg, selectedDate, sel
                 </div>
                 <div className={styles.info}>
                     <span>start date - </span>
-                    {selectedDate}
+                    {selectedStartDate}
                 </div>
                 <div className={styles.info}>
                     <span>end date - </span>
-                    {selectedDate}
+                    {selectedEndDate}
                 </div>
                 <div className={styles.info}>
                     <span>target - </span>
-                    {selectedDate}
+                    {selectedTarget}
                 </div>
                 <div className={styles.info}>
                     <span>payment methods - </span>
-                    {selectedDate}
+                    {selectedPayment.map((payment) => {
+                        return <span>{payment} </span>
+                    })}
                 </div>
                 <button className={styles.button}>
                     <a href={selectedUrl} target="_blank">
