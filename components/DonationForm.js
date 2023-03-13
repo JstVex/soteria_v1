@@ -11,10 +11,11 @@ const DonationForm = () => {
     const [url, setUrl] = useState('');
     const [target, setTarget] = useState('');
     const [location, setLocation] = useState('');
+    const [newPost, setNewPost] = useState(true);
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
 
-    const [payment, setPayment] = useState(['']);
+    const [payment, setPayment] = useState([]);
 
     const handleCheckboxChange = (event) => {
         const { value, checked } = event.target;
@@ -28,9 +29,9 @@ const DonationForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const post = { title, img, startDate, endDate, text, name, url, target, location, payment };
+        const post = { title, img, startDate, endDate, text, name, url, target, location, payment, newPost };
 
-        const response = await fetch(`http://localhost:4004/donations`, {
+        const response = await fetch(`http://localhost:4008/donations`, {
             method: 'POST',
             body: JSON.stringify(post),
             headers: {
@@ -62,8 +63,11 @@ const DonationForm = () => {
     }
 
     return (
+        // <form className={styles.form} action="" onSubmit={handleSubmit} encType="multipart/form-data">
         <form className={styles.form} action="" onSubmit={handleSubmit}>
-
+            <div className={styles.heading}>
+                Donations
+            </div>
             <div className={styles.form_flex}>
                 <div className={styles.form_flex2}>
                     <label htmlFor="title" className={styles.label}>
@@ -76,6 +80,8 @@ const DonationForm = () => {
                     <label htmlFor="image" className={styles.label2}>
                         Image:
                     </label>
+                    {/* <input id='image' type="file" onChange={(e) => setImg(e.target.value)} value={img} className={styles.input} name="image" /> */}
+                    {/* <input id='image' type="file" className={styles.input} name="image" /> */}
                     <input id='image' type="text" onChange={(e) => setImg(e.target.value)} value={img} className={styles.input} />
                 </div>
             </div>
@@ -120,27 +126,27 @@ const DonationForm = () => {
 
                 <div className={styles.checkbox}>
                     <input type="checkbox" id="nugpay" name="payment" value="nugpay" onChange={handleCheckboxChange} />
-                    <label for="nugpay">NUGPay</label>
+                    <label htmlFor="nugpay">NUGPay</label>
                 </div>
 
                 <div className={styles.checkbox}>
                     <input type="checkbox" id="kpay" name="payment" value="kpay" onChange={handleCheckboxChange} />
-                    <label for="kpay">Kpay</label>
+                    <label htmlFor="kpay">Kpay</label>
                 </div>
 
                 <div className={styles.checkbox}>
                     <input type="checkbox" id="wavepay" name="payment" value="wavepay" onChange={handleCheckboxChange} />
-                    <label for="wavepay">Wavepay</label>
+                    <label htmlFor="wavepay">Wavepay</label>
                 </div>
 
                 <div className={styles.checkbox}>
                     <input type="checkbox" id="paypal" name="payment" value="paypal" onChange={handleCheckboxChange} />
-                    <label for="paypal">Paypal</label>
+                    <label htmlFor="paypal">Paypal</label>
                 </div>
 
                 <div className={styles.checkbox}>
                     <input type="checkbox" id="visa" name="payment" value="visa" onChange={handleCheckboxChange} />
-                    <label for="visa">Visa</label>
+                    <label htmlFor="visa">Visa</label>
                 </div>
             </fieldset>
 
@@ -150,7 +156,7 @@ const DonationForm = () => {
                         Choose location:
                     </label>
                     <select name="location" id="location" onChange={(e) => setLocation(e.target.value)} className={`${styles.input} ${emptyFields.includes('location') ? `${styles.error}` : ''}`}>
-                        <option value="yangon">Kachin</option>
+                        <option value="kachin">Kachin</option>
                         <option value="kayah">Kayah</option>
                         <option value="kayin">Kayin</option>
                         <option value="chin">Chin</option>
