@@ -48,7 +48,7 @@ const Websites = ({ webs }) => {
 }
 
 export async function getStaticProps() {
-    const res = await fetch(`https://soteria-backend-alc9.onrender.com/websites/firstposts`);
+    const res = await fetch(`${process.env.SERVER_URL}/websites/firstposts`);
     const webs = await res.json();
     return { props: { webs } }
 }

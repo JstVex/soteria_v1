@@ -57,7 +57,7 @@ const Campaigns = ({ campaigns }) => {
 
 
 export async function getServerSideProps() {
-    const res = await fetch(`http://localhost:4004/campaigns`)
+    const res = await fetch(`${process.env.SERVER_URL}/campaigns`)
     const campaigns = await res.json()
     return { props: { campaigns } }
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../../styles/WebAndUtube.module.css'
 import Link from 'next/link';
 import Latestchannels from '../../components/LatestChannels';
@@ -6,6 +6,16 @@ import Latestchannels from '../../components/LatestChannels';
 const Youtube = ({ channels }) => {
     const [utube, setUtube] = useState('');
     console.log(channels)
+
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setLoading(false);
+    }, [channels]);
+
+    if (loading) {
+        return <div className={styles.loading}>Loading...</div>;
+    }
 
     return (
         <div className={styles.container}>
@@ -50,7 +60,7 @@ const Youtube = ({ channels }) => {
 }
 
 export async function getStaticProps() {
-    const res = await fetch(`https://soteria-backend-alc9.onrender.com/channels`);
+    const res = await fetch(`${process.env.SERVER_URL}/channels`);
     const channels = await res.json();
     return { props: { channels } }
 }

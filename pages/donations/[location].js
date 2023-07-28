@@ -2,7 +2,6 @@ import Donation from '../../components/Donation';
 import styles from '../../styles/Donations.module.css'
 import Modal from '../../components/Modal';
 import { useEffect, useState } from 'react';
-import { BiArrowBack } from 'react-icons/bi'
 import { RiArrowGoBackFill } from "react-icons/ri"
 import Link from 'next/link';
 
@@ -17,6 +16,7 @@ const Location = ({ donations, locationUrl }) => {
     const [selectedUrl, setSelectedUrl] = useState(null);
     const [selectedPayment, setSelectedPayment] = useState(null);
 
+    const [loading, setLoading] = useState(true);
 
     const [count, setCount] = useState(0);
     console.log(donations.length)
@@ -25,7 +25,12 @@ const Location = ({ donations, locationUrl }) => {
         for (let i = 0; i <= donations.length; i++) {
             setCount(i);
         }
-    }, [])
+        setLoading(false);
+    }, [donations])
+
+    if (loading) {
+        return <div className={styles.loading}>Loading...</div>;
+    }
 
     // console.log(donations)
     return (
@@ -64,7 +69,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const res = await fetch(`https://soteria-backend-alc9.onrender.com/donations/${params.location}`)
+    const res = await fetch(`${process.env.SERVER_URL}/donations/${params.location}`)
     const donations = await res.json()
     let locationUrl = params.location
 
@@ -72,7 +77,7 @@ export async function getStaticProps({ params }) {
 }
 
 // export async function getServerSideProps() {
-//     const res = await fetch(`https://soteria-backend-alc9.onrender.com/donations/yangon`)
+//     const res = await fetch(`${process.env.SERVER_URL}/donations/yangon`)
 //     const donations = await res.json()
 //     return { props: { donations } }
 // }
