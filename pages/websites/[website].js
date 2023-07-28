@@ -25,14 +25,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const res = await fetch(`https://soteria-backend-alc9.onrender.com/websites/${params.website}`)
+    const res = await fetch(`${process.env.SERVER_URL}/websites/${params.website}`)
     const posts = await res.json()
 
     return { props: { posts } }
 }
 
 // export async function getStaticProps() {
-//     const res = await fetch(`https://soteria-backend-alc9.onrender.com/websites/pyithubawa`);
+//     const res = await fetch(`${process.env.SERVER_URL}/websites/pyithubawa`);
 //     const posts = await res.json();
 //     return { props: { posts } }
 // }

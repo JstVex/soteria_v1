@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const res = await fetch(`https://soteria-backend-alc9.onrender.com/channels/${params.youtube}`)
+    const res = await fetch(`${process.env.SERVER_URL}/${params.youtube}`)
     const vids = await res.json()
 
     return { props: { vids } }

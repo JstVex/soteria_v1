@@ -33,7 +33,7 @@ const CampaignForm = () => {
 
         const post = { title, img, startDate, endDate, text, name, url, target, prize, forWhom, payment, newPost };
 
-        const response = await fetch(`http://localhost:4008/campaigns`, {
+        const response = await fetch(`${process.env.SERVER_URL}/campaigns`, {
             method: 'POST',
             body: JSON.stringify(post),
             headers: {
