@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
 import { BsGlobe2 } from "react-icons/bs";
 import { AiOutlineAppstore, AiOutlineYoutube } from "react-icons/ai";
-import { GrGamepad } from "react-icons/gr";
 import { CgGames } from "react-icons/cg"
 import { BiDonateHeart } from "react-icons/bi";
 import { MdOutlineCampaign } from "react-icons/md"
@@ -74,7 +73,23 @@ export default function Home() {
       </Head>
 
       <div className={styles.part1_container}>
+        <div className={styles.part1_wrapper}>
+          <div className={styles.part1_text}>
+            <div className={styles.part1_titles}>
+              <h3 className={styles.part1_title}>
+                For Myanmar
+              </h3>
+              <h3 className={styles.part1_title2}>
+                From the world
+              </h3>
+            </div>
 
+            <p className={styles.part1_paragraph}>
+              Help us light up the future of Myanmar. Join our fight for justice and independence during our Spring Revolution. Stand in solidarity with the brave citizens of Myanmar, empowering them to rebuild and create a brighter tomorrow. Together, let's build a peaceful and prosperous Myanmar!
+            </p>
+          </div>
+          <img src="https://onedrive.live.com/embed?resid=3616EC68410FC656%21735&authkey=%21AICjxZZrT0PObYI&width=1364&height=936" alt="" className={styles.part1_image} />
+        </div>
       </div>
 
       <div className={styles.part2_container}>
@@ -124,7 +139,7 @@ export default function Home() {
           </span>
         </div>
         <p className={styles.text}>
-          Fortunately, lots of talented and courgeous people here has invented many ways to get much help as possible. These includes apps, games, websites, youtube channels, donations, campaigns and many more.
+          Fortunately, lots of talented and courgeous people here have invented many ways to get much help as possible. These includes apps, games, websites, youtube channels, donations, campaigns and many more.
         </p>
         <div className={styles.icons}>
           <AiOutlineAppstore className={styles.icon} />
@@ -144,10 +159,14 @@ export default function Home() {
 
         <div className={styles.content}>
           <div className={styles.paragraph}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum eveniet quod saepe, minima ut natus. Expedita tempore eligendi aliquid inventore, aperiam id? Eius impedit aspernatur necessitatibus expedita nobis nemo ipsa?
+            {/* Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum eveniet quod saepe, minima ut natus. Expedita tempore eligendi aliquid inventore, aperiam id? Eius impedit aspernatur necessitatibus expedita nobis nemo ipsa?
             Lorem ipsum dolor sit amet consectetur adipisicing elit. In labore quae aperiam voluptas ipsum quasi earum amet quibusdam? Sapiente aspernatur quidem blanditiis dolorem illum ut commodi beatae aperiam aut magnam.
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolores non saepe perferendis, soluta voluptates adipisci fugiat ducimus ratione sunt est sed blanditiis id. Magni eos perferendis rem neque nam?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores beatae ipsum fugit doloribus dolore reprehenderit dolor enim nihil ratione? Eveniet quasi voluptatem adipisci eos, asperiores nesciunt nihil libero consequuntur quis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores beatae ipsum fugit doloribus dolore reprehenderit dolor enim nihil ratione? Eveniet quasi voluptatem adipisci eos, asperiores nesciunt nihil libero consequuntur quis. */}
+            The best and the most valuable way is by using apps and games created by genius bright minds here. The first category is 'Clicking apps' which contain contents or links that users can click to view the content and an ad or two after. These apps are the most valuable beacuase of the fast pace and convenient of just clicking on links. Don't worry it is 100% safe to click on them and most just link to blogs made by our own which are even valuable to read. These apps include: Click to Donate, Thadin, Lattsaung and many more.
+            Another category is 'Games'. Games are not as fast as clicking apps in getting ads but they are fun. After clicking a while, go on and play some games to relax your mind. They are both fun and profitable. These games include shooting games such as War Heroes, The PDF Game and fun and adventurous games such as Suyadanar, Nway Oo Candy and many many more.
+            You can see all available apps by clicking 'Find all' button below.
+
           </div>
           <div className={styles.wrap}>
             <div className={styles.logos}>
@@ -178,7 +197,11 @@ export default function Home() {
             <img onMouseOver={handleAppear} src="https://dsm01pap007files.storage.live.com/y4mZRTUcvzOWgLkNjC03o9QIqzc0c2BxifHNCf1Q1-z-5---GPVanb7lB2ZOMh5RZEukPcv89O5zP_-MBU8PJEy5LrrUZlnVA2nTAR5EnRwMHn4x94gNsP__rt8ffuEtPNHyUHRuqkFK8yAbcl4QyuD6_vOZ0H-uLmC99O6x1aFtV2n3g3eQuJnLt1QHesC-aI6?width=512&height=512&cropmode=none" alt="" className={styles.logo_website} />
 
             <Link href="/websites/pyithubawa">
-              <button className={`${styles.subicon} ${appear ? styles.appear : styles.none}`}><span className={styles.texticon}>pyithubawa</span></button>
+              <button className={`${styles.subicon} ${appear ? styles.appear : styles.none}`}>
+                <span className={styles.texticon}>
+                  pyithubawa
+                </span>
+              </button>
             </Link>
           </div>
           <div className={styles.paragraph}>
@@ -225,8 +248,12 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className={styles.campaigns}>
-
+      <div className={styles.donations}>
+        <div className={styles.header}>
+          <span className={styles.topic}>
+            Donations
+          </span>
+        </div>
       </div>
     </div>
 
