@@ -1,15 +1,21 @@
 .header {
-    height: 20vh;
+    height: auto;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 95%;
     margin: 0px auto;
+    padding: 20px 0px 30px 0px;
     border-bottom: 2px solid black;
 }
 
 .pfp {
     border-radius: 50%;
+    width: auto;
+    height: auto;
+    max-width: 120px;
+    max-height: 120px;
+    aspect-ratio: 1 / 1;
 }
 
 .channel,
@@ -29,5 +35,13 @@
 .heading {
     text-align: center;
     padding: 30px 0px 30px 0px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 764px) {
+    .wrap {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
 }
