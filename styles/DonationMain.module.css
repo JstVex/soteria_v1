@@ -65,7 +65,7 @@
 .img1,
 .img2 {
     object-fit: cover;
-    max-width: 32.9vw;
+    max-width: 33.333vw;
     max-height: 700px;
     width: auto;
     height: auto;
@@ -89,9 +89,12 @@
 }
 
 .title {
+    text-align: center;
     font-size: 2.2rem;
     font-weight: 400;
     padding: 0px 0px 40px 0px;
+    text-decoration: underline orange;
+    text-underline-offset: 5px;
 
 }
 
@@ -129,7 +132,7 @@
     background-color: white;
     color: black;
     width: 270px;
-    height: 275px;
+    height: 285px;
     margin: 0px 30px;
 }
 
@@ -277,7 +280,7 @@
 
     .card {
         width: 270px;
-        height: 275px;
+        height: 285px;
         margin: 30px 30px;
     }
 
