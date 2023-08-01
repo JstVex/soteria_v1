@@ -12,6 +12,10 @@
     scroll-behavior: smooth;
 }
 
+/* .warn {
+    margin: auto 0;
+} */
+
 .topic::-webkit-scrollbar {
     display: none;
 }
@@ -43,7 +47,8 @@
     align-items: center;
 }
 
-.card {
+.card,
+.card_warn {
     height: 330px;
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
@@ -51,10 +56,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     margin: 15px auto 20px auto;
     box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
     transition: all 500ms;
+}
+
+.card {
+    justify-content: space-between;
+}
+
+.card_warn {
+    justify-content: center;
+}
+
+.warn {
+    text-align: center;
 }
 
 .card2 {
@@ -132,6 +148,10 @@
 
 @media screen and (max-width: 600px) {
     .card {
+        width: 250px;
+    }
+
+    .card_warn {
         width: 250px;
     }
 
