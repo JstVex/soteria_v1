@@ -17,6 +17,13 @@ const DonationForm = () => {
 
     const [payment, setPayment] = useState([]);
 
+    const handleImageChange = (event) => {
+        const file = event.target.files?.[0];
+        if (file) {
+            setImg(file);
+        }
+    };
+
     const handleCheckboxChange = (event) => {
         const { value, checked } = event.target;
         if (checked) {
@@ -29,42 +36,57 @@ const DonationForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const post = { title, img, startDate, endDate, text, name, url, target, location, payment, newPost };
+        try {
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('startDate', startDate);
+            formData.append('endDate', endDate);
+            formData.append('text', text);
+            formData.append('name', name);
+            formData.append('url', url);
+            formData.append('target', target);
+            formData.append('location', location);
+            formData.append('payment', payment);
+            formData.append('newPost', newPost);
 
-        const response = await fetch(`http://localhost:4008/donations`, {
-            method: 'POST',
-            body: JSON.stringify(post),
-            headers: {
-                'Content-Type': 'application/json'
+            if (img) {
+                formData.append('img', img);
             }
-        })
-        const data = await response.json();
 
-        if (!response.ok) {
-            setError(data.error);
-            setEmptyFields(data.emptyFields)
-        }
-        if (response.ok) {
-            setTitle('');
-            setImg('');
-            setStartDate('');
-            setEndDate('');
-            setName('');
-            setText('');
-            setUrl('');
-            setTarget('');
-            setLocation('');
-            setError(null);
-            setPayment([]);
-            setEmptyFields([]);
-            console.log('New post added', data)
-        }
+            const response = await fetch(`http://localhost:4004/donations`, {
+                method: 'POST',
+                body: formData
+            });
 
+            if (!response.ok) {
+                setError(data.error);
+                setEmptyFields(data.emptyFields)
+            }
+
+            if (response.ok) {
+                const data = await response.json();
+                setTitle('');
+                setImg('');
+                setStartDate('');
+                setEndDate('');
+                setName('');
+                setText('');
+                setUrl('');
+                setTarget('');
+                setLocation('');
+                setError(null);
+                setPayment([]);
+                setEmptyFields([]);
+                console.log('New post added', data)
+            }
+        } catch (error) {
+            console.error('Error creating a donation post', error)
+        }
     }
 
     return (
         // <form className={styles.form} action="" onSubmit={handleSubmit} encType="multipart/form-data">
-        <form className={styles.form} action="" onSubmit={handleSubmit}>
+        <form className={styles.form} encType="multipart/form-data" onSubmit={handleSubmit}>
             <div className={styles.heading}>
                 Donations
             </div>
@@ -73,16 +95,14 @@ const DonationForm = () => {
                     <label htmlFor="title" className={styles.label}>
                         Title:
                     </label>
-                    <input id='title' type="text" onChange={(e) => setTitle(e.target.value)} value={title} className={`${styles.input} ${emptyFields.includes('title') ? styles.error : ''}`} />
+                    <input name='title' id='title' type="text" onChange={(e) => setTitle(e.target.value)} value={title} className={`${styles.input} ${emptyFields.includes('title') ? styles.error : ''}`} />
                 </div>
 
                 <div className={styles.form_flex2}>
-                    <label htmlFor="image" className={styles.label2}>
+                    <label htmlFor="img" className={styles.label2}>
                         Image:
                     </label>
-                    {/* <input id='image' type="file" onChange={(e) => setImg(e.target.value)} value={img} className={styles.input} name="image" /> */}
-                    {/* <input id='image' type="file" className={styles.input} name="image" /> */}
-                    <input id='image' type="text" onChange={(e) => setImg(e.target.value)} value={img} className={styles.input} />
+                    <input id='img' type="file" className={styles.input} name="img" onChange={handleImageChange} />
                 </div>
             </div>
 
@@ -91,13 +111,13 @@ const DonationForm = () => {
                     <label htmlFor="startdate" className={styles.label}>
                         Start date:
                     </label>
-                    <input id='startdate' type="date" onChange={(e) => setStartDate(e.target.value)} value={startDate} className={styles.input} />
+                    <input name='startDate' id='startdate' type="date" onChange={(e) => setStartDate(e.target.value)} value={startDate} className={styles.input} />
                 </div>
                 <div className={styles.form_flex2}>
                     <label htmlFor="enddate" className={styles.label2}>
                         End date:
                     </label>
-                    <input id='enddate' type="date" onChange={(e) => setEndDate(e.target.value)} value={endDate} className={styles.input} />
+                    <input name='endDate' id='enddate' type="date" onChange={(e) => setEndDate(e.target.value)} value={endDate} className={styles.input} />
                 </div>
             </div>
 
@@ -106,20 +126,20 @@ const DonationForm = () => {
                     <label htmlFor="name" className={styles.label}>
                         Name:
                     </label>
-                    <input id='name' type="text" onChange={(e) => setName(e.target.value)} value={name} className={styles.input} />
+                    <input name='name' id='name' type="text" onChange={(e) => setName(e.target.value)} value={name} className={styles.input} />
                 </div>
                 <div className={styles.form_flex2}>
                     <label htmlFor="link" className={styles.label2}>
                         Link/url:
                     </label>
-                    <input id='link' type="url" onChange={(e) => setUrl(e.target.value)} value={url} className={`${styles.input} ${emptyFields.includes('url') ? `${styles.error}` : ''}`} />
+                    <input name='url' id='link' type="url" onChange={(e) => setUrl(e.target.value)} value={url} className={`${styles.input} ${emptyFields.includes('url') ? `${styles.error}` : ''}`} />
                 </div>
             </div>
 
             <label htmlFor="text">
                 Text:
             </label>
-            <textarea id='text' type="text" autoCorrect="off" spellCheck="false" onChange={(e) => setText(e.target.value)} value={text} className={`${styles.textarea} ${emptyFields.includes('text') ? `${styles.error}` : ''}`} />
+            <textarea name='text' id='text' type="text" autoCorrect="off" spellCheck="false" onChange={(e) => setText(e.target.value)} value={text} className={`${styles.textarea} ${emptyFields.includes('text') ? `${styles.error}` : ''}`} />
 
             <fieldset className={styles.fieldset}>
                 <legend className={styles.legend}>Choose all available payment methods</legend>
@@ -176,7 +196,7 @@ const DonationForm = () => {
                     <label htmlFor="target" className={styles.label2}>
                         Target:
                     </label>
-                    <input type="text" id='target' onChange={(e) => setTarget(e.target.value)} value={target} placeholder="Eg. 100,000 mmk or 10 $" />
+                    <input name='target' type="text" id='target' onChange={(e) => setTarget(e.target.value)} value={target} placeholder="Eg. 100,000 mmk or 10 $" />
                 </div>
             </div>
 

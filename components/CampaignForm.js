@@ -12,12 +12,17 @@ const CampaignForm = () => {
     const [target, setTarget] = useState('');
     const [prize, setPrize] = useState('');
     const [forWhom, setForwhom] = useState('');
+    const [payment, setPayment] = useState([]);
     const [newPost, setNewPost] = useState(true);
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
 
-
-    const [payment, setPayment] = useState([]);
+    const handleImageChange = (event) => {
+        const file = event.target.files?.[0];
+        if (file) {
+            setImg(file);
+        }
+    };
 
     const handleCheckboxChange = (event) => {
         const { value, checked } = event.target;
@@ -31,42 +36,57 @@ const CampaignForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const post = { title, img, startDate, endDate, text, name, url, target, prize, forWhom, payment, newPost };
+        try {
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('startDate', startDate);
+            formData.append('endDate', endDate);
+            formData.append('text', text);
+            formData.append('name', name);
+            formData.append('url', url);
+            formData.append('target', target);
+            formData.append('prize', prize);
+            formData.append('forWhom', forWhom);
+            formData.append('payment', payment);
+            formData.append('newPost', newPost);
 
-        const response = await fetch(`http://localhost:4008/campaigns`, {
-            method: 'POST',
-            body: JSON.stringify(post),
-            headers: {
-                'Content-Type': 'application/json'
+            // if (img) {
+            formData.append('img', img);
+            // }
+
+            const response = await fetch(`http://localhost:4004/campaigns`, {
+                method: 'POST',
+                body: formData
+            })
+            const data = await response.json();
+
+            if (!response.ok) {
+                setError(data.error);
+                setEmptyFields(data.emptyFields)
             }
-        })
-        const data = await response.json();
-
-        if (!response.ok) {
-            setError(data.error);
-            setEmptyFields(data.emptyFields)
+            if (response.ok) {
+                setTitle('');
+                setImg('');
+                setStartDate('');
+                setEndDate('');
+                setName('');
+                setText('');
+                setUrl('');
+                setTarget('');
+                setPrize('');
+                setForwhom('')
+                setError(null);
+                setPayment([]);
+                setEmptyFields([]);
+                console.log('New post added', data)
+            }
+        } catch (error) {
+            console.error('Error creating a campaign post', error)
         }
-        if (response.ok) {
-            setTitle('');
-            setImg('');
-            setStartDate('');
-            setEndDate('');
-            setName('');
-            setText('');
-            setUrl('');
-            setTarget('');
-            setPrize('');
-            setForwhom('')
-            setError(null);
-            setPayment([]);
-            setEmptyFields([]);
-            console.log('New post added', data)
-        }
-
     }
 
     return (
-        <form className={styles.form_campaign} action="" onSubmit={handleSubmit}>
+        <form className={styles.form_campaign} encType="multipart/form-data" onSubmit={handleSubmit}>
             <div className={styles.heading}>
                 Campaigns
             </div>
@@ -79,10 +99,10 @@ const CampaignForm = () => {
                 </div>
 
                 <div className={styles.form_flex2}>
-                    <label htmlFor="image_campaign" className={styles.label2}>
+                    <label htmlFor="img_campaign" className={styles.label2}>
                         Image:
                     </label>
-                    <input id='image_campaign' type="text" onChange={(e) => setImg(e.target.value)} value={img} className={styles.input} />
+                    <input id='img_campaign' type="file" className={styles.input} name="img" onChange={handleImageChange} />
                 </div>
             </div>
 
