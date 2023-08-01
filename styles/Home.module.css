@@ -1,13 +1,6 @@
-.snap {
-    max-height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
+.container {
+    overflow: hidden;
 }
-
-.snap::-webkit-scrollbar {
-    display: none;
-}
-
 .hide {
     opacity: 0;
     transition: all 2s;
@@ -21,7 +14,6 @@
 .part1_container {
     height: 92vh;
     background-color: rgb(255, 255, 255);
-    scroll-snap-align: start;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,7 +64,6 @@
     /* height: 100%; */
     background-color: #0f0f0f;
     color: white;
-    scroll-snap-align: start;
 }
 
 .padding {
@@ -101,31 +92,38 @@
 }
 
 .part3_container {
+    display: flex;
+    align-items: center;
     height: 100%;
     padding: 40px 50px;
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-    scroll-snap-align: start;
+}
+
+.part3_wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
 }
 
 .title_div {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: 3rem;
     text-align: center;
-    padding: 10px 0px 20px 0px;
+    padding: 30px 0px 10px 0px;
 }
 
 .title_span {
     background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=orange);
-    padding: 5px 22px;
+    padding: 5px 28px;
 }
 
 .text {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 300;
-    line-height: 1.8rem;
-    width: 75%;
+    line-height: 2.3rem;
+    width: 80%;
     margin: 20px auto;
 }
 
@@ -133,42 +131,54 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 30px 60px 0px 60px;
+    padding: 30px 60px 30px 60px;
+    color: rgb(0, 0, 0);
 }
 
 .icon {
-    font-size: 40px;
+    font-size: 45px;
     border: 1px solid rgb(0, 0, 0);
     padding: 7px;
     border-radius: 50%;
     transition: all 500ms;
+    cursor: pointer;
 }
 
 .icon:hover {
-    font-size: 45px;
+   background-color: black;
+   color: orange;
+}
+
+.part3_scroll {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
 }
 
 .app,
 .website,
-.youtube {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+.youtube,
+.donations {
+    height: 100%;
     scroll-snap-align: start;
+    background-color: rgb(255, 251, 244);
+    color: rgb(0, 0, 0);
     padding: 40px 50px;
-    /* border-bottom: 1px solid rgb(255, 157, 0); */
 }
 
 .header {
     text-align: center;
     padding: 20px;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
 }
 
 .topic {
     padding: 15px;
     transition: all 500ms;
-    border: 1px solid rgb(0, 0, 0);
-    /* border-radius: 25px; */
+    /* border: 1px solid rgb(0, 0, 0); */
+    text-decoration: underline orange;
+    text-underline-offset: 7px;
+    /* border-radius: 50px; */
 }
 
 .topic:hover {
@@ -186,12 +196,22 @@
     grid-template-columns: 1.75fr 1fr;
 }
 
+.content_reverse {
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+    margin-top: 50px;
+    display: grid;
+    gap: 10px 60px;
+    grid-template-columns: 1fr 1.75fr;
+}
+
 .paragraph {
     padding: 10px 0px 10px 0px;
     font-weight: 300;
-    line-height: 1.7rem;
+    line-height: 2rem;
     /* text-align: center; */
-    font-size: 1.05rem;
+    font-size: 1.1rem;
 }
 
 .group {
@@ -200,26 +220,38 @@
     justify-content: space-between;
 }
 
-.visit_btn {
-    font-family: 'Roboto', sans-serif;
+.link,
+.link_reverse {
     font-weight: 300;
-    font-size: 1rem;
+    font-size: 1.1rem;
     display: block;
-    /* background-color: rgb(0, 0, 0); */
-    background-color: white;
-    /* color: white; */
     color: black;
-    border: 1.5px solid rgb(255, 157, 0);
-    padding: 15px 12px;
-    margin: 20px 20px 10px 20px;
-    border-radius: 25px;
     transition: all 500ms;
+    cursor: pointer;
 }
 
-.visit_btn:hover {
-    background-color: rgb(255, 157, 0);
-    border: 1.5px solid rgb(255, 157, 0);
-    font-size: 1.05rem;
+.link {
+    margin: 0px auto 0px 0px;
+}
+
+.link_reverse {
+    margin: 0px 0px 0px auto;
+}
+
+.link_wrapper {
+    margin-left: auto;
+    display: flex;
+    column-gap: 20px;
+}
+
+.underline_link {
+    text-decoration: underline orange;
+    text-underline-offset: 2.5px;
+}
+
+.link:hover,
+.link_reverse:hover {
+    font-size: 1.15rem;
 }
 
 .wrap {
@@ -242,7 +274,7 @@
     border-radius: 100%;
     margin: 0px auto;
     padding: 0 10px;
-    transition: all 500ms;
+    /* transition: all 500ms; */
     animation: fadeIn 3s infinite;
 }
 
@@ -258,20 +290,10 @@
     grid-area: c;
 }
 
-.logo:hover {
+/* .logo:hover {
     max-height: 140px;
     max-width: 140px;
-}
-
-.content_reverse {
-    /* display: flex;
-    align-items: center;
-    justify-content: space-between; */
-    margin-top: 50px;
-    display: grid;
-    gap: 10px 60px;
-    grid-template-columns: 1fr 1.75fr;
-}
+} */
 
 .logo_website {
     max-height: 175px;
@@ -390,6 +412,59 @@
         max-width: 500px;
         max-height: 450px;
     }
+
+    .part3_container {
+        display: flex;
+        align-items: center;
+    height: 100%;
+        padding: 40px 30px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+
+    .part3_wrapper {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+    .title_div {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        text-align: center;
+        padding: 10px 0px 0px 0px;
+    }
+
+    .title_span {
+        background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=orange);
+        padding: 5px 28px;
+    }
+
+    .text {
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 300;
+        line-height: 2rem;
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    .icons {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 30px 60px 0px 60px;
+        color: rgb(0, 0, 0);
+    }
+
+    .icon {
+        font-size: 40px;
+        border: 1px solid rgb(0, 0, 0);
+        padding: 7px;
+        border-radius: 50%;
+        transition: all 500ms;
+        cursor: pointer;
+    }
 }
 
 @media screen and (max-width: 764px) {
@@ -436,22 +511,66 @@
         padding: 50px 20px;
     }
 
-    .part3_container {
-        padding: 50px 20px;
-    }
+.part3_container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 40px 10px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
 
-    .title_div {
-        font-size: 1.7rem;
-    }
+.part3_wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
 
-    .text {
-        font-size: 1.1rem;
-        line-height: 1.4rem;
-    }
+.app,
+.website,
+.youtube,
+.donations {
+    padding: 40px 20px;
+}
 
-    .icons {
-        padding: 20px 0px 0px 0px;
-    }
+.title_div {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 0px 0px 10px 0px;
+}
+
+.title_span {
+    background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=orange);
+    padding: 5px 28px;
+}
+
+.text {
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.7rem;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px 10px 0px 10px;
+    color: rgb(0, 0, 0);
+}
+
+.icon {
+    font-size: 40px;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 7px;
+    border-radius: 50%;
+    transition: all 500ms;
+    cursor: pointer;
+}
+       
 
     .paragraph1 {
         font-size: 1.1rem;
@@ -463,19 +582,39 @@
         line-height: 1.4rem;
     }
 
+    .header {
+        text-align: center;
+        padding: 0px;
+        font-size: 1.5rem;
+    }
+
+    .topic {
+        padding: 15px;
+        transition: all 500ms;
+        text-decoration: underline orange;
+        text-underline-offset: 7px;
+    }
+
     .content {
-        margin-top: 50px;
+        margin-top: 20px;
         display: grid;
         gap: 10px 60px;
         grid-template-columns: 1fr;
     }
 
     .content_reverse {
-        margin-top: 50px;
+        margin-top: 20px;
         display: grid;
         gap: 10px 60px;
         grid-template-columns: 1fr;
     }
+
+        .paragraph {
+            padding: 10px 0px 0px 0px;
+            font-weight: 300;
+            line-height: 1.8rem;
+            font-size: 0.9rem;
+        }
 
     .wrap {
         margin: 20px auto 30px auto;
