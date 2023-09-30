@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    background-color: rgb(255, 251, 244);
+    padding: 15px 15px;
+    column-gap: 10px;
+}
+
+.text {
+    margin-left: auto;
+    font-weight: 300;
+}
+
+.copyright {
+    font-weight: 300;
+}

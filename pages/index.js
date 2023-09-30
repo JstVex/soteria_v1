@@ -1,14 +1,16 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BsGlobe2 } from "react-icons/bs";
 import { AiOutlineAppstore, AiOutlineYoutube } from "react-icons/ai";
 import { CgGames } from "react-icons/cg"
 import { BiDonateHeart } from "react-icons/bi";
-import { MdOutlineCampaign, MdOutlineRiceBowl } from "react-icons/md"
-import { GiMachineGunMagazine } from "react-icons/gi"
-import { GrAidOption } from "react-icons/gr"
+import { MdOutlineCampaign } from "react-icons/md"
 import styles from '../styles/Home.module.css'
+import Image from 'next/image'
+import { appLogos } from '../data/appLogos';
+import { channelLogos } from '../data/channelLogos';
+import Footer from '../components/Footer';
 
 export default function Home() {
   const [appear, setAppear] = useState(false);
@@ -20,10 +22,6 @@ export default function Home() {
   const handleDisappear = () => {
     setAppear(false);
   }
-
-  const appLogos = ["https://dsm01pap007files.storage.live.com/y4m_lPPAlxHccjhvxNmX3RcBU8mXFf9abDjMIRt9MVI4S6iwhf0-4Sw82L42eGOFyKRJ4rz7rjUMcdqlDSpeVREyAqavtBYoS_6KfH7V_X1GnpW_GrtM9G_13h9kIJpJJsZlyNPuSA62S7M9uPzrMwOqvQmuRT1xf4T97VPQ2rmxwWXKWrJXeYT-az301Q2Yhhq?width=512&height=512&cropmode=none", "https://dsm01pap007files.storage.live.com/y4mLzSog6BA8kX03-5J9J0Ok0c4I5ytl8AG0HI7on7CqEfBr9xhXvGMwUW8ZixpCRIgPXbX-l_1Pja1_qJ1_aEvTThu4S7EAAT_6IuAGuiBFDTbA4m_z8vpnSwTpWA_abe8-by9VA6DFQD1hn6SXrAVAl0UyE3gFw6K0xGsCfmW_fvB-f0mDQaKMwSKrPiqfiNe?width=512&height=512&cropmode=none", "https://dsm01pap007files.storage.live.com/y4mQXuVsVaTz3HIXSgWiPIbzlem9VctOz90pnJtBJ5dvFsXrtoikd_jgi5UVltn_5qvWheo3ZboJHgWiVBi2a25edUwnQN0LVmv3KuBGJuA8VIqb8DbgfBbdAJNifo8micVPGByh_sflob6fLAxxcB8i7LCh3HKc0SBXrMVYJFWiWZz8LB79Ldzzp8xzy-uXDIw?width=512&height=512&cropmode=none", "https://dsm01pap007files.storage.live.com/y4m5oUiKnVUoAiMp_RIcQ1ee_LE1lG7YY-aBsVAlZkWcMyJduOVAHZJaaKdwqbjs18nNoMyBYgfTvu2IZ3BTJm9mAXS2GoY7qPNrNvdVmonQuC-uKIGd4CYQAACgSTuIlL4LzwiG7f-ncADRKIWF4-HW_01zBBECgvt563oCqKz8qvGM0RGHeKK95IodNzxSOHX?width=240&height=240&cropmode=none", "https://dsm01pap007files.storage.live.com/y4moXIbkwbNy4rIhKjvqgXxGKeDoLdwaAcQbUSlQOvNJNe47-OtmRVPmmdtW1-XYSQPnE8kHae7LF0jDDAHhUfS0hvuCHJFEtOh2HRjQ69P6wUFCTt6FvDs1OjT64gkjud_mojMmp3zUiWaZSSIrqxDzprTrj_3qdmeZdS86Rzmy_cF04Lt1lBrLY7trnrAT-Qa?width=512&height=512&cropmode=none", "https://dsm01pap007files.storage.live.com/y4mnImozbjUys7TL6GkWJHYom3F87lsu1zQ11TiQKI92lQTWxMP5SF3GPXW-hi2C6JaWmYA8i1-V2BTkF83wxOaCeDLTjeHDyJbdXjfislct2wLROWAN4q0K75vM2L-evyxdVwAacH3D4qSMWyalOw6MVATMkmmz5rtdfQgQJFUHe9RuQHqnXW8t5DflyWAn3a1?width=512&height=512&cropmode=none", "https://dsm01pap007files.storage.live.com/y4m3PtvGMeHDWlpxypicWd8lkTBBqGIcgEzZIhsgLrzK0kCTdrgwCLhGcSJVnJyj7Uk1xiixc29v4xuQsFAEMEdYrNbkUPh_nmiWQl4rP8gngOCjNhhHVc5bPxEuMrkjBGAB2zIZVvC302pypRu8UY0WUcx64T2BxiN9DUGedGm9nwaCkLYtxGk1bHGWq_dJK4V?width=512&height=512&cropmode=none", "https://dsm01pap007files.storage.live.com/y4mCt6eTIeOA2-w1pdmH6SDD-ZZ_K-296GpK4QoNJPeWxVdBTpBJFpW03rWyzxtR6e1rk26DL5-tcgkybap4Q0gzEcLcS2pFUfIGICLCIdS4QWELP8yEYrqAqf4PdsOzvQQX3YUE2F380QPbDQth3RM71TabpiwOW8RGrzyZ1YH5TMKIdY--jh8SMvAKqmq5KZS?width=512&height=512&cropmode=none", "https://dsm01pap007files.storage.live.com/y4mWnDbDpnB2Lb1hCM16oJthUcxjEulPIyBEXEL8GfidkUrwN7kQrKI0ddZoXvyL_kOqhfAA7h38aO5YAfentTmMfo9fy1ObOxMTvjMCSFlTYo03ExxvqMVC0C6VsyN61OxxGpRfkOeIC1ZiBEu8TZqUUge4WgCXZ_ob6gqFwDILPsYCM0qcW594AeconmEtfFj?width=512&height=512&cropmode=none"];
-
-  const channelLogos = ["https://dsm01pap007files.storage.live.com/y4mScDIIDm5ZYRnJYvjjuS4zOhdZdRyr4zvbbuahtHq7mqxcqhnCyf0ZGk8FExFbHbF9ovGLQPkcFNUqpNgD122hUOCGV-kcY3J_ts34qZ9f52XKqlYQu3FMQ_Lmm33CgZ6oGHe1_BxN58h-FMprYsWV4ztRg6E1pSbIt-HCgYBhlqcfkYhhgv80TpgFSQSnEq5?width=176&height=176&cropmode=none", "https://dsm01pap007files.storage.live.com/y4mZRTUcvzOWgLkNjC03o9QIqzc0c2BxifHNCf1Q1-z-5---GPVanb7lB2ZOMh5RZEukPcv89O5zP_-MBU8PJEy5LrrUZlnVA2nTAR5EnRwMHn4x94gNsP__rt8ffuEtPNHyUHRuqkFK8yAbcl4QyuD6_vOZ0H-uLmC99O6x1aFtV2n3g3eQuJnLt1QHesC-aI6?width=512&height=512&cropmode=none", "https://dsm01pap007files.storage.live.com/y4mhgziW9j39Fm7w9Q1O9n-8AqTEHUWancX3F4pAm-sBgNlbox9N74pe1TyTHC6aa2hDVPFG6BYkdAhGMLp-GwIPco5vyhpTGbAq-dSZdJHdpruReOZbeEBGILKyna5Sh6TkMQKgrj-Bmv3j5U5pNtcvjuowctBkliNI_jIjtLtpOG3VYPFnN7HXqXSctIqNR_S?width=176&height=176&cropmode=none", "https://dsm01pap007files.storage.live.com/y4m_lPPAlxHccjhvxNmX3RcBU8mXFf9abDjMIRt9MVI4S6iwhf0-4Sw82L42eGOFyKRJ4rz7rjUMcdqlDSpeVREyAqavtBYoS_6KfH7V_X1GnpW_GrtM9G_13h9kIJpJJsZlyNPuSA62S7M9uPzrMwOqvQmuRT1xf4T97VPQ2rmxwWXKWrJXeYT-az301Q2Yhhq?width=512&height=512&cropmode=none"]
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentIndexChannel, setCurrentIndexChannel] = useState(0);
@@ -68,7 +66,8 @@ export default function Home() {
               Help us light up the future of Myanmar. Join our fight for justice and independence during our Spring Revolution. Stand in solidarity with the brave citizens of Myanmar, empowering them to rebuild and create a brighter tomorrow. Together, let's build a peaceful and prosperous Myanmar!
             </p>
           </div>
-          <img src="https://onedrive.live.com/embed?resid=3616EC68410FC656%21735&authkey=%21AICjxZZrT0PObYI&width=1364&height=936" alt="" className={styles.part1_image} />
+
+          <Image src="https://onedrive.live.com/embed?resid=3616EC68410FC656%21735&authkey=%21AICjxZZrT0PObYI&width=1364&height=936" width={1000} height={1000} alt="" className={styles.part1_image} />
         </div>
       </div>
 
@@ -146,9 +145,9 @@ export default function Home() {
               <img src={appLogos[(currentIndex + 2) % appLogos.length]} alt="" className={styles.logo} />
             </div>
           </div>
-          <div className={styles.link}>
+          {/* <div className={styles.link}>
             -  <span className={styles.underline_link}> visit all websites</span>
-          </div>
+          </div> */}
         </div>
 
       </div>
@@ -244,6 +243,8 @@ export default function Home() {
 
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }
