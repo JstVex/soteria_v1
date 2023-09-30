@@ -5,6 +5,8 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    /* background-color: black;
+    color: white; */
 }
 
 a {
@@ -28,7 +30,7 @@ a {
 } */
 
 .map-container {
-    height: 68vh;
+    height: 85vh;
     position: absolute;
     top: 0;
     left: 0;
@@ -36,4 +38,31 @@ a {
 
 .wrapper {
     position: relative;
+}
+
+.mapboxgl-popup-content {
+    /* width: 100px; */
+    align-items: center;
+}
+
+.mapboxgl-popup-content p {
+    text-transform: capitalize;
+    text-align: center;
+    margin: 5px;
+}
+
+.mapboxgl-popup-content div {
+    color: rgb(255, 145, 0);
+    margin: 0;
+    outline: none;
+}
+
+.mapboxgl-popup-content button {
+    outline: none;
+}
+
+.loading {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 10px auto;
 }

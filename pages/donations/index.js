@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl';
-import Link from 'next/link';
 import styles from '../../styles/DonationMain.module.css'
 import ImageSlider from '../../components/ImageSlider';
 import DonationForm from '../../components/DonationForm';
@@ -27,7 +26,8 @@ const Donations = () => {
             container: mapContainer.current,
             style: 'mapbox://styles/mapbox/light-v11',
             center: [lng, lat],
-            zoom: zoom
+            zoom: zoom,
+            scrollZoom: false
         });
 
         new mapboxgl.Marker({ color: 'orange' })
@@ -35,7 +35,11 @@ const Donations = () => {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                     `<p>kachin</p>
-                    <button><a href='http://localhost:3000/donations/kachin'>go</a></button>`
+                    <div>
+                        <a href='http://localhost:3000/donations/kachin'>
+                        visit this location
+                        </a>
+                    </div>`
                 )
             )
             .addTo(map.current);
@@ -45,7 +49,11 @@ const Donations = () => {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                     `<p>yangon</p>
-                    <button><a href='http://localhost:3000/donations/yangon'>go</a></button>`
+                    <div>
+                        <a href='http://localhost:3000/donations/yangon'>
+                        visit this location
+                        </a>
+                    </div>`
                 )
             )
             .addTo(map.current);
@@ -55,7 +63,11 @@ const Donations = () => {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                     `<p>kayin</p>
-                    <button><a href='http://localhost:3000/donations/kayin'>go</a></button>`
+                    <div>
+                        <a href='http://localhost:3000/donations/kayin'>
+                        visit this location
+                        </a>
+                    </div>`
                 )
             )
             .addTo(map.current);
@@ -65,7 +77,11 @@ const Donations = () => {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                     `<p>kayah</p>
-                    <button><a href='http://localhost:3000/donations/kayah'>go</a></button>`
+                    <div>
+                        <a href='http://localhost:3000/donations/kayah'>
+                        visit this location
+                        </a>
+                    </div>`
                 )
             )
             .addTo(map.current);
@@ -75,7 +91,11 @@ const Donations = () => {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                     `<p>chin</p>
-                    <button><a href='http://localhost:3000/donations/chin'>go</a></button>`
+                    <div>
+                        <a href='http://localhost:3000/donations/chin'>
+                        visit this location
+                        </a>
+                    </div>`
                 )
             )
             .addTo(map.current);
@@ -85,7 +105,11 @@ const Donations = () => {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                     `<p>mon</p>
-                    <button><a href='http://localhost:3000/donations/mon'>go</a></button>`
+                    <div>
+                        <a href='http://localhost:3000/donations/mon'>
+                        visit this location
+                        </a>
+                    </div>`
                 )
             )
             .addTo(map.current);
@@ -95,7 +119,11 @@ const Donations = () => {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                     `<p>rakhine</p>
-                    <button><a href='http://localhost:3000/donations/rakhine'>go</a></button>`
+                    <div>
+                        <a href='http://localhost:3000/donations/rakhine'>
+                        visit this location
+                        </a>
+                    </div>`
                 )
             )
             .addTo(map.current);
@@ -105,7 +133,11 @@ const Donations = () => {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                     `<p>shan</p>
-                    <button><a href='http://localhost:3000/donations/shan'>go</a></button>`
+                    <div>
+                        <a href='http://localhost:3000/donations/shan'>
+                        visit this location
+                        </a>
+                    </div>`
                 )
             )
             .addTo(map.current);
@@ -115,7 +147,11 @@ const Donations = () => {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                     `<p>mandalay</p>
-                    <button><a href='http://localhost:3000/donations/mandalay'>go</a></button>`
+                    <div>
+                        <a href='http://localhost:3000/donations/mandalay'>
+                        visit this location
+                        </a>
+                    </div>`
                 )
             )
             .addTo(map.current);
@@ -125,7 +161,11 @@ const Donations = () => {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                     `<p>bago</p>
-                    <button><a href='http://localhost:3000/donations/bago'>go</a></button>`
+                    <div>
+                        <a href='http://localhost:3000/donations/bago'>
+                        visit this location
+                        </a>
+                    </div>`
                 )
             )
             .addTo(map.current);
@@ -135,7 +175,11 @@ const Donations = () => {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                     `<p>magway</p>
-                    <button><a href='http://localhost:3000/donations/magway'>go</a></button>`
+                    <div>
+                        <a href='http://localhost:3000/donations/magway'>
+                        visit this location
+                        </a>
+                    </div>`
                 )
             )
             .addTo(map.current);
@@ -145,7 +189,11 @@ const Donations = () => {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                     `<p>sagaing</p>
-                    <button><a href='http://localhost:3000/donations/sagaing'>go</a></button>`
+                    <div>
+                        <a href='http://localhost:3000/donations/sagaing'>
+                        visit this location
+                        </a>
+                    </div>`
                 )
             )
             .addTo(map.current);
@@ -155,7 +203,11 @@ const Donations = () => {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                     `<p>ayeyarwady</p>
-                    <button><a href='http://localhost:3000/donations/ayeyarwady'>go</a></button>`
+                    <div>
+                        <a href='http://localhost:3000/donations/ayeyarwady'>
+                        visit this location
+                        </a>
+                    </div>`
                 )
             )
             .addTo(map.current);
@@ -165,7 +217,11 @@ const Donations = () => {
             .setPopup(
                 new mapboxgl.Popup({ offset: 25 }).setHTML(
                     `<p>tanintharyi</p>
-                    <button><a href='http://localhost:3000/donations/tanintharyi'>go</a></button>`
+                    <div>
+                        <a href='http://localhost:3000/donations/tanintharyi'>
+                        visit this location
+                        </a>
+                    </div>`
                 )
             )
             .addTo(map.current);
@@ -188,7 +244,7 @@ const Donations = () => {
                         Donations are essential for us
                     </p>
                     <p className={styles.subtext}>
-                        Using apps and visiting websites and channels are free ways to support but they aren't enough. Lots of help is needed in many areas throughout the country and the amount got from these aren't enough. That's why we must donate as much as we can every now and then to claim our victory faster.
+                        Using apps and visiting websites and channels are great ways to support but there are others as well. Lots of help is needed in many areas throughout the country and the amount got from these aren't enough. That's why we must donate as much as we can every now and then to claim our victory faster.
                     </p>
                     <button className={styles.button}>
                         <div onClick={() => scrollToSection('map')}> Explore donations</div>
@@ -262,7 +318,7 @@ const Donations = () => {
                         </div>
                         <div className={styles.para}>
                             <span className={styles.first_letter}>Arrests </span>
-                            have happened and many of them got tortured in many forms and some even got killed in the process. Lots of people are still detained in an inhumane way and getting tortured. There have been many cases of getting arrested one day and the death body is sent back the next day.
+                            have happened and many of them got tortured in many forms and some even got killed in the process. Lots of people are still detained in an inhumane way and getting tortured. There have been many cases of getting arrested one day and the body is sent back the next day.
                         </div>
                     </div>
                     <div className={styles.card}>
@@ -277,12 +333,14 @@ const Donations = () => {
                     </div>
                 </div>
             </div>
+
             <div className={styles.map_heading} id='map'>
                 <span className={styles.map_heading_span}>
                     Browse and Donate for each location
                 </span>
             </div>
             <div ref={mapContainer} className="map-container" />
+
             <div className={styles.forth_section}>
                 <div className={styles.flex2}>
                     <div className={styles.add}>
