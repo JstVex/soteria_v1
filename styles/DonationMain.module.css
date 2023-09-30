@@ -76,6 +76,7 @@
 .second_section_cdm {
     display: flex;
     padding: 60px 40px;
+    align-items: center;
 }
 
 .wrap {
@@ -95,7 +96,6 @@
     padding: 0px 0px 40px 0px;
     text-decoration: underline orange;
     text-underline-offset: 5px;
-
 }
 
 .text {
@@ -118,14 +118,15 @@
 
 .third_section {
     background-color: rgb(34, 34, 34);
+    /* background-color: white; */
     color: white;
 }
 
 .flex {
-    padding: 50px;
+    padding: 50px 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .card {
@@ -152,7 +153,7 @@
     font-size: 0.9rem;
     font-weight: 100;
     margin: 20px 15px 20px 40px;
-    padding: 0px 5px 0px 20px;
+    padding: 0px 10px 0px 20px;
     border-left: 1px solid rgb(248, 224, 180);
 }
 
@@ -173,7 +174,7 @@
 }
 
 .forth_section {
-    padding: 60px 40px;
+    padding: 40px 40px 60px 40px;
 }
 
 .flex2 {
@@ -197,10 +198,12 @@
 .add_heading {
     font-size: 2rem;
     margin-bottom: 20px;
+    text-decoration: underline orange;
+    text-underline-offset: 6.5px;
 }
 
 .add_text {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 300;
 }
 
@@ -271,16 +274,15 @@
 
 }
 
-@media screen and (max-width: 975px) {
-
+@media screen and (max-width: 1010px) {
     .flex {
         flex-direction: column;
         margin-top: 20px;
     }
 
     .card {
-        width: 270px;
-        height: 285px;
+        width: 300px;
+        height: 265px;
         margin: 30px 30px;
     }
 

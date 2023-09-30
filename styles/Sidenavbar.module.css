@@ -39,7 +39,7 @@
 }
 
 .main_link:hover {
-    background-color: orange;
+    background-color: #ffa500;
 }
 
 @media screen and (max-width: 600px) {
