@@ -17,8 +17,11 @@ const CampaignForm = () => {
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
 
+    const [imagePreview, setImagePreview] = useState(null);
+
     const handleImageChange = (event) => {
         const file = event.target.files?.[0];
+        setImagePreview(file);
         if (file) {
             setImg(file);
         }
@@ -54,16 +57,16 @@ const CampaignForm = () => {
             formData.append('img', img);
             // }
 
-            const response = await fetch(`http://localhost:4004/campaigns`, {
+            const response = await fetch(`http://localhost:4008/campaigns`, {
                 method: 'POST',
                 body: formData
             })
             const data = await response.json();
 
-            if (!response.ok) {
-                setError(data.error);
-                setEmptyFields(data.emptyFields)
-            }
+            // if (!response.ok) {
+            //     setError(data.error);
+            //     setEmptyFields(data.emptyFields)
+            // }
             if (response.ok) {
                 setTitle('');
                 setImg('');
@@ -78,6 +81,7 @@ const CampaignForm = () => {
                 setError(null);
                 setPayment([]);
                 setEmptyFields([]);
+                setImagePreview(null);
                 console.log('New post added', data)
             }
         } catch (error) {
@@ -98,11 +102,31 @@ const CampaignForm = () => {
                     <input id='title_campaign' type="text" onChange={(e) => setTitle(e.target.value)} value={title} className={`${styles.input} ${emptyFields.includes('title') ? styles.error : ''}`} />
                 </div>
 
-                <div className={styles.form_flex2}>
-                    <label htmlFor="img_campaign" className={styles.label2}>
-                        Image:
-                    </label>
-                    <input id='img_campaign' type="file" className={styles.input} name="img" onChange={handleImageChange} />
+                <div className={styles.form_flex_image}>
+                    <div>
+                        <label htmlFor="img_campaign" className={styles.label2}>
+                            Image:
+                        </label>
+                        <div className={styles.image_wrap}>
+                            <label htmlFor="img_campaign" className={styles.image_label}>
+                                Select
+                            </label>
+                            <input
+                                id="img_campaign"
+                                type="file"
+                                className={styles.image_input}
+                                name="img"
+                                onChange={handleImageChange}
+                            />
+                        </div>
+                    </div>
+                    {imagePreview && (
+                        <img
+                            src={URL.createObjectURL(imagePreview)}
+                            alt="Image Preview"
+                            className={styles.image_preview}
+                        />
+                    )}
                 </div>
             </div>
 
@@ -175,22 +199,6 @@ const CampaignForm = () => {
                     <label htmlFor="prize_campaign" className={styles.label}>
                         Prize:
                     </label>
-                    {/* <select name="location" id="location" onChange={(e) => setLocation(e.target.value)} className={`${styles.input} ${emptyFields.includes('location') ? `${styles.error}` : ''}`}>
-                        <option value="kachin">Kachin</option>
-                        <option value="kayah">Kayah</option>
-                        <option value="kayin">Kayin</option>
-                        <option value="chin">Chin</option>
-                        <option value="mon">Mon</option>
-                        <option value="rakhine">Rakhine</option>
-                        <option value="shan">Shan</option>
-                        <option value="ayeyarwady">Ayeyarwady</option>
-                        <option value="bago">Bago</option>
-                        <option value="magway">Magway</option>
-                        <option value="mandalay">Mandalay</option>
-                        <option value="sagaing">Sagaing</option>
-                        <option value="tanintharyi">Tanintharyi</option>
-                        <option value="yangon">Yangon</option>
-                    </select> */}
                     <input type="text" id='prize_campaign' onChange={(e) => setPrize(e.target.value)} value={prize} placeholder="" />
                 </div>
                 <div className={styles.form_flex2}>
@@ -199,21 +207,13 @@ const CampaignForm = () => {
                     </label>
                     <input type="text" id='target_campaign' onChange={(e) => setTarget(e.target.value)} value={target} placeholder="Eg. 100,000 mmk or 10 $" />
                 </div>
-            </div>
-            <div className={styles.form_flex}>
-                <div className={styles.form_flex2}>
-                    <label htmlFor="forWhom_campaign" className={styles.label2}>
-                        For which organization or where:
-                    </label>
-                    <input type="text" id='forWhom_campaign' onChange={(e) => setForwhom(e.target.value)} value={forWhom} placeholder="" />
-                </div>
-            </div>
+            </div >
 
-            <button className={styles.button}>
+            <button button className={styles.button} >
                 submit
-            </button>
+            </button >
             {error && <div className={styles.missing}> <span className={styles.missing_text}>{error}</span></div>}
-        </form>
+        </form >
     );
 }
 

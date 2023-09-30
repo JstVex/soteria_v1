@@ -16,9 +16,11 @@ const DonationForm = () => {
     const [emptyFields, setEmptyFields] = useState([]);
 
     const [payment, setPayment] = useState([]);
+    const [imagePreview, setImagePreview] = useState(null);
 
     const handleImageChange = (event) => {
         const file = event.target.files?.[0];
+        setImagePreview(file);
         if (file) {
             setImg(file);
         }
@@ -53,15 +55,15 @@ const DonationForm = () => {
                 formData.append('img', img);
             }
 
-            const response = await fetch(`http://localhost:4004/donations`, {
+            const response = await fetch(`http://localhost:4008/donations`, {
                 method: 'POST',
                 body: formData
             });
 
-            if (!response.ok) {
-                setError(data.error);
-                setEmptyFields(data.emptyFields)
-            }
+            // if (!response.ok) {
+            //     setError(data.error);
+            //     setEmptyFields(data.emptyFields)
+            // }
 
             if (response.ok) {
                 const data = await response.json();
@@ -77,6 +79,7 @@ const DonationForm = () => {
                 setError(null);
                 setPayment([]);
                 setEmptyFields([]);
+                setImagePreview(null);
                 console.log('New post added', data)
             }
         } catch (error) {
@@ -85,7 +88,6 @@ const DonationForm = () => {
     }
 
     return (
-        // <form className={styles.form} action="" onSubmit={handleSubmit} encType="multipart/form-data">
         <form className={styles.form} encType="multipart/form-data" onSubmit={handleSubmit}>
             <div className={styles.heading}>
                 Donations
@@ -98,13 +100,36 @@ const DonationForm = () => {
                     <input name='title' id='title' type="text" onChange={(e) => setTitle(e.target.value)} value={title} className={`${styles.input} ${emptyFields.includes('title') ? styles.error : ''}`} />
                 </div>
 
-                <div className={styles.form_flex2}>
-                    <label htmlFor="img" className={styles.label2}>
-                        Image:
-                    </label>
-                    <input id='img' type="file" className={styles.input} name="img" onChange={handleImageChange} />
+                <div className={styles.form_flex_image}>
+                    <div>
+
+
+                        <label htmlFor="img" className={styles.label2}>
+                            Image:
+                        </label>
+                        <div className={styles.image_wrap}>
+                            <label htmlFor="img" className={styles.image_label}>
+                                Select
+                            </label>
+                            <input
+                                id="img"
+                                type="file"
+                                className={styles.image_input}
+                                name="img"
+                                onChange={handleImageChange}
+                            />
+                        </div>
+                    </div>
+                    {imagePreview && (
+                        <img
+                            src={URL.createObjectURL(imagePreview)}
+                            alt="Image Preview"
+                            className={styles.image_preview}
+                        />
+                    )}
                 </div>
             </div>
+
 
             <div className={styles.form_flex}>
                 <div className={styles.form_flex2}>
@@ -204,7 +229,7 @@ const DonationForm = () => {
                 submit
             </button>
             {error && <div className={styles.missing}> <span className={styles.missing_text}>{error}</span></div>}
-        </form>
+        </form >
     );
 }
 
