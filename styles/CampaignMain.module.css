@@ -22,7 +22,8 @@
     font-size: 1.1rem;
     line-height: 1.5rem;
     font-weight: 300;
-    margin: 30px 0px;
+    margin: 30px auto;
+    width: 80%;
 }
 
 .button {
@@ -36,6 +37,7 @@
     font-size: 1rem;
     font-family: 'Roboto', 'serif';
     font-weight: 300;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -43,7 +45,7 @@
     color: white;
 }
 
-.imageSection {
+/* .imageSection {
     display: flex;
     flex-wrap: nowrap;
     margin: 30px 15px;
@@ -52,6 +54,27 @@
     transition: all 500ms;
     scroll-behavior: smooth;
     width: 97.5%;
+} */
+
+.imageSection {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 30px 15px;
+    overflow: hidden;
+    animation: scrollAnimation 250s linear infinite;
+    /* Adjust the animation duration as needed */
+    /* width: 200%; */
+    /* Set the width to 100% to ensure all images are scrollable */
+}
+
+@keyframes scrollAnimation {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .imageSection::-webkit-scrollbar {
@@ -59,20 +82,21 @@
 }
 
 .image {
+    width: auto;
+    height: auto;
     object-fit: cover;
-    max-width: 275px;
-    max-height: 300px;
+    max-width: 200px;
+    max-height: 250px;
     transition: 500ms all;
 }
 
 .image:nth-child(odd) {
-    margin-bottom: 275px;
     border-left: 2px solid orange;
     border-top: 2px solid orange;
 }
 
 .image:nth-child(even) {
-    margin-top: 275px;
+    margin-top: 250px;
     border-right: 2px solid orange;
     border-bottom: 2px solid orange;
 }
@@ -83,8 +107,9 @@
 }
 
 .heading_content {
-    border-bottom: 1px solid;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
+    text-decoration: underline orange;
+    text-underline-offset: 7px;
 }
 
 .content {
@@ -109,5 +134,9 @@
 
     .image:nth-child(even) {
         margin-top: 200px;
+    }
+
+    .subtext {
+        width: 100%;
     }
 }
