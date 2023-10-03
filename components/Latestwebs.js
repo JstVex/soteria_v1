@@ -1,14 +1,13 @@
 import styles from "../styles/Websites.module.css"
 
 const Lastestwebs = ({ web }) => {
-    console.log(web)
-
     if (web.titles[0] === undefined) {
         return (
             <div className={styles.card_warn}>
-                <p className={styles.warn}>
+                <img src="https://onedrive.live.com/embed?resid=3616EC68410FC656%21784&authkey=%21AMoggb1PUVXKia4&width=284&height=178" alt="" className={styles.img} />
+                <div className={styles.warn_text}>
                     {web.website} is currently not available
-                </p>
+                </div>
             </div>
         )
     }

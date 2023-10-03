@@ -26,9 +26,6 @@ const Websites = ({ webs }) => {
                         <option value="">Choose a website</option>
                         <option value="weclick4pdf">weclick4pdf</option>
                         <option value="pyithubawa">pyithubawa</option>
-                        {/* <option value=""></option>
-                <option value=""></option>
-                <option value=""></option> */}
                     </select>
                     <button className={styles.button}>
                         <Link href={`/websites/${website}`}>go</Link>
@@ -48,7 +45,7 @@ const Websites = ({ webs }) => {
 }
 
 export async function getStaticProps() {
-    const res = await fetch(`https://soteria-backend-alc9.onrender.com/websites/firstposts`);
+    const res = await fetch(`http://localhost:4004/websites/firstposts`);
     const webs = await res.json();
     return { props: { webs } }
 }
