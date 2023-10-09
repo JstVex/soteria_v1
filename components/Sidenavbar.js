@@ -17,10 +17,6 @@ const Sidenavbar = ({ toggle }) => {
                 <Link href="/campaigns" className={styles.main_link}>
                     <span className={styles.link}>campaigns</span>
                 </Link>
-                {/* <Link href='/profile' className={styles.link}>Profile</Link>
-                <Link href='/contribute' className={styles.link}>Contribute</Link>
-                <Link href='/login' className={styles.link}>Login / SignUp</Link>
-                <p className={styles.link}>Theme</p> */}
             </div>
         </div>
     );
