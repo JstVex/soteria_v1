@@ -4,6 +4,7 @@ import styles from '../../styles/DonationMain.module.css'
 import ImageSlider from '../../components/ImageSlider';
 import DonationForm from '../../components/DonationForm';
 import CampaignForm from '../../components/CampaignForm';
+import Image from 'next/image';
 
 const Donations = () => {
     function scrollToSection(sectionId) {
@@ -252,7 +253,7 @@ const Donations = () => {
                 </div>
                 <ImageSlider />
             </div>
-            <div div className={styles.second_section_ammo} >
+            <div className={styles.second_section_ammo} >
                 <div className={styles.wrap}>
                     <div className={styles.title}>
                         Weaponry, ammunitions and supplies
@@ -264,11 +265,11 @@ const Donations = () => {
                         We can donate to some directly or through individuals or organizations who are doing as much as they can to support not just our PDFs in rural areas but also UGs who are working underground in major cities.
                     </div>
                 </div>
-                <img className={styles.img} src="https://dsm01pap007files.storage.live.com/y4m-6kBajalvnI1jPcL0DBwkc_3KWwyVvnNZG2lpdsbUzrWr3NpEBHmoogY9CZHNGJC1JWVw8DLxnt4GAtj9klnLem3JbBvEMDtcEnvV2j5BY02Yvx-tP_ikNmhIoeKGCP3DVbNziKsFe1WWXWbrTHNgq0SKV4_DiYtpiW0eAObDetf7FqrC40vKvns0yNeY7AC?width=3072&height=3072&cropmode=none" alt="" />
+                <Image className={styles.img} src="https://dsm01pap007files.storage.live.com/y4m-6kBajalvnI1jPcL0DBwkc_3KWwyVvnNZG2lpdsbUzrWr3NpEBHmoogY9CZHNGJC1JWVw8DLxnt4GAtj9klnLem3JbBvEMDtcEnvV2j5BY02Yvx-tP_ikNmhIoeKGCP3DVbNziKsFe1WWXWbrTHNgq0SKV4_DiYtpiW0eAObDetf7FqrC40vKvns0yNeY7AC?width=3072&height=3072&cropmode=none" alt="" width={1000} height={1000} />
             </div>
 
             <div className={styles.second_section_refugee}>
-                <img className={styles.img} src="https://dsm01pap007files.storage.live.com/y4m-6kBajalvnI1jPcL0DBwkc_3KWwyVvnNZG2lpdsbUzrWr3NpEBHmoogY9CZHNGJC1JWVw8DLxnt4GAtj9klnLem3JbBvEMDtcEnvV2j5BY02Yvx-tP_ikNmhIoeKGCP3DVbNziKsFe1WWXWbrTHNgq0SKV4_DiYtpiW0eAObDetf7FqrC40vKvns0yNeY7AC?width=3072&height=3072&cropmode=none" alt="" />
+                <Image className={styles.img} src="https://dsm01pap007files.storage.live.com/y4m-6kBajalvnI1jPcL0DBwkc_3KWwyVvnNZG2lpdsbUzrWr3NpEBHmoogY9CZHNGJC1JWVw8DLxnt4GAtj9klnLem3JbBvEMDtcEnvV2j5BY02Yvx-tP_ikNmhIoeKGCP3DVbNziKsFe1WWXWbrTHNgq0SKV4_DiYtpiW0eAObDetf7FqrC40vKvns0yNeY7AC?width=3072&height=3072&cropmode=none" alt="" width={1000} height={1000} />
                 <div className={styles.wrap2}>
                     <div className={styles.title}>
                         Food, shelter and needs for our war victims
@@ -296,7 +297,7 @@ const Donations = () => {
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam quas, non voluptas blanditiis dolores deleniti unde facere explicabo, maiores neque ratione architecto laborum quia quam minus reprehenderit. Beatae, blanditiis minus.
                     </div>
                 </div>
-                <img className={styles.img} src="https://dsm01pap007files.storage.live.com/y4m-6kBajalvnI1jPcL0DBwkc_3KWwyVvnNZG2lpdsbUzrWr3NpEBHmoogY9CZHNGJC1JWVw8DLxnt4GAtj9klnLem3JbBvEMDtcEnvV2j5BY02Yvx-tP_ikNmhIoeKGCP3DVbNziKsFe1WWXWbrTHNgq0SKV4_DiYtpiW0eAObDetf7FqrC40vKvns0yNeY7AC?width=3072&height=3072&cropmode=none" alt="" />
+                <Image className={styles.img} src="https://dsm01pap007files.storage.live.com/y4m-6kBajalvnI1jPcL0DBwkc_3KWwyVvnNZG2lpdsbUzrWr3NpEBHmoogY9CZHNGJC1JWVw8DLxnt4GAtj9klnLem3JbBvEMDtcEnvV2j5BY02Yvx-tP_ikNmhIoeKGCP3DVbNziKsFe1WWXWbrTHNgq0SKV4_DiYtpiW0eAObDetf7FqrC40vKvns0yNeY7AC?width=3072&height=3072&cropmode=none" alt="" width={1000} height={1000} />
             </div>
 
             <div className={styles.third_section}>

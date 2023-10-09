@@ -1,11 +1,20 @@
 import styles from "../../styles/Channel.module.css";
 import Videos from "../../components/Videos";
+import { useRouter } from "next/router";
+import Loading from "../../components/Loading";
+import Image from "next/image";
 
 const Youtube = ({ vids }) => {
+    const router = useRouter();
+
+    if (router.isFallback) {
+        return <Loading />
+    }
+
     return (
         <div className={styles.container} >
             <div className={styles.header}>
-                <img src={vids[0].pfp} alt="" className={styles.pfp} />
+                <Image src={vids[0].pfp} alt="" className={styles.pfp} width={1000} height={1000} />
                 <div className={styles.wrap}>
                     <span className={styles.channel}>{vids[0].channel.toUpperCase()}</span>
                     <span className={styles.subs}>{vids[0].subs}</span>

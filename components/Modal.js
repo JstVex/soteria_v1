@@ -1,5 +1,6 @@
 import styles from "../styles/Modal.module.css"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 const Modal = ({ setSelectedTitle, selectedTitle, selectedImg, selectedStartDate, selectedEndDate, selectedText, selectedName, selectedTarget, selectedUrl, selectedPayment }) => {
     const handleDisappear = (e) => {
@@ -19,7 +20,7 @@ const Modal = ({ setSelectedTitle, selectedTitle, selectedImg, selectedStartDate
             >
                 <p className={styles.title}>{selectedTitle}</p>
                 <div className={styles.flex}>
-                    <img src={selectedImg} alt="" className={styles.img} />
+                    <Image src={selectedImg} alt="" className={styles.img} width={1000} height={1000} />
                     <p className={styles.text}>{selectedText}</p>
                 </div>
 

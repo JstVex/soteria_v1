@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from '../styles/DonationForm.module.css'
+import Image from 'next/image';
 
 const CampaignForm = () => {
     const [title, setTitle] = useState('');
@@ -121,10 +122,12 @@ const CampaignForm = () => {
                         </div>
                     </div>
                     {imagePreview && (
-                        <img
+                        <Image
                             src={URL.createObjectURL(imagePreview)}
                             alt="Image Preview"
                             className={styles.image_preview}
+                            width={1000}
+                            height={1000}
                         />
                     )}
                 </div>
@@ -209,7 +212,7 @@ const CampaignForm = () => {
                 </div>
             </div >
 
-            <button button className={styles.button} >
+            <button className={styles.button} >
                 submit
             </button >
             {error && <div className={styles.missing}> <span className={styles.missing_text}>{error}</span></div>}

@@ -1,10 +1,11 @@
 import styles from "../styles/Channels.module.css"
 import { BsFillPlayFill } from "react-icons/bs"
+import Image from "next/image";
 
 const ShowVids = ({ vid, i }) => {
     return (
         <div className={styles.card}>
-            <img src={vid.imgs[i]} alt="" className={styles.img} />
+            <Image src={vid.imgs[i]} alt="" className={styles.img} width={1000} height={1000} />
             <p className={styles.title}>{vid.titles[i]}</p>
             <div className={styles.extra}>
                 <div className={styles.viewNdate}>

@@ -1,8 +1,9 @@
 import styles from "../styles/CampaignMain.module.css"
+import Image from "next/image";
 
 const CampaignImages = ({ campaign }) => {
     return (
-        <img src={campaign.img} alt="" className={styles.image} />
+        <Image src={campaign.img} alt="" className={styles.image} width={1000} height={1000} />
     );
 }
 

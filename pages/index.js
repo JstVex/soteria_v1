@@ -11,6 +11,7 @@ import Image from 'next/image'
 import { appLogos } from '../data/appLogos';
 import { channelLogos } from '../data/channelLogos';
 import Footer from '../components/Footer';
+import Image from 'next/image';
 
 export default function Home() {
   const [appear, setAppear] = useState(false);
@@ -140,9 +141,9 @@ export default function Home() {
           </div>
           <div className={styles.wrap}>
             <div className={styles.logos}>
-              <img src={appLogos[(currentIndex + 0) % appLogos.length]} alt="" className={styles.logo} />
-              <img src={appLogos[(currentIndex + 1) % appLogos.length]} alt="" className={styles.logo} />
-              <img src={appLogos[(currentIndex + 2) % appLogos.length]} alt="" className={styles.logo} />
+              <Image width={1000} height={1000} src={appLogos[(currentIndex + 0) % appLogos.length]} alt="" className={styles.logo} />
+              <Image width={1000} height={1000} src={appLogos[(currentIndex + 1) % appLogos.length]} alt="" className={styles.logo} />
+              <Image width={1000} height={1000} src={appLogos[(currentIndex + 2) % appLogos.length]} alt="" className={styles.logo} />
             </div>
           </div>
           {/* <div className={styles.link}>
@@ -168,7 +169,7 @@ export default function Home() {
               </button>
             </Link>
 
-            <img onMouseOver={handleAppear} src="https://dsm01pap007files.storage.live.com/y4mZRTUcvzOWgLkNjC03o9QIqzc0c2BxifHNCf1Q1-z-5---GPVanb7lB2ZOMh5RZEukPcv89O5zP_-MBU8PJEy5LrrUZlnVA2nTAR5EnRwMHn4x94gNsP__rt8ffuEtPNHyUHRuqkFK8yAbcl4QyuD6_vOZ0H-uLmC99O6x1aFtV2n3g3eQuJnLt1QHesC-aI6?width=512&height=512&cropmode=none" alt="" className={styles.logo_website} />
+            <Image width={1000} height={1000} onMouseOver={handleAppear} src="https://dsm01pap007files.storage.live.com/y4mZRTUcvzOWgLkNjC03o9QIqzc0c2BxifHNCf1Q1-z-5---GPVanb7lB2ZOMh5RZEukPcv89O5zP_-MBU8PJEy5LrrUZlnVA2nTAR5EnRwMHn4x94gNsP__rt8ffuEtPNHyUHRuqkFK8yAbcl4QyuD6_vOZ0H-uLmC99O6x1aFtV2n3g3eQuJnLt1QHesC-aI6?width=512&height=512&cropmode=none" alt="" className={styles.logo_website} />
 
             <Link href="/websites/pyithubawa">
               <button className={`${styles.subicon} ${appear ? styles.appear : styles.none}`}>
@@ -203,9 +204,9 @@ export default function Home() {
           </div>
           <div className={styles.wrap}>
             <div className={styles.logos}>
-              <img src={channelLogos[(currentIndexChannel + 0) % channelLogos.length]} alt="" className={styles.logo} />
-              <img src={channelLogos[(currentIndexChannel + 1) % channelLogos.length]} alt="" className={styles.logo} />
-              <img src={channelLogos[(currentIndexChannel + 2) % channelLogos.length]} alt="" className={styles.logo} />
+              <Image width={1000} height={1000} src={channelLogos[(currentIndexChannel + 0) % channelLogos.length]} alt="" className={styles.logo} />
+              <Image width={1000} height={1000} src={channelLogos[(currentIndexChannel + 1) % channelLogos.length]} alt="" className={styles.logo} />
+              <Image width={1000} height={1000} src={channelLogos[(currentIndexChannel + 2) % channelLogos.length]} alt="" className={styles.logo} />
             </div>
           </div>
           <Link href="/youtube" className={styles.link}>
@@ -223,9 +224,9 @@ export default function Home() {
         <div className={styles.content_reverse}>
           <div className={styles.wrap}>
             <div className={styles.logos}>
-              <img src={appLogos[(currentIndex + 0) % appLogos.length]} alt="" className={styles.logo} />
-              <img src={appLogos[(currentIndex + 1) % appLogos.length]} alt="" className={styles.logo} />
-              <img src={appLogos[(currentIndex + 2) % appLogos.length]} alt="" className={styles.logo} />
+              <Image width={1000} height={1000} src={appLogos[(currentIndex + 0) % appLogos.length]} alt="" className={styles.logo} />
+              <Image width={1000} height={1000} src={appLogos[(currentIndex + 1) % appLogos.length]} alt="" className={styles.logo} />
+              <Image width={1000} height={1000} src={appLogos[(currentIndex + 2) % appLogos.length]} alt="" className={styles.logo} />
             </div>
           </div>
           <div className={styles.paragraph}>
