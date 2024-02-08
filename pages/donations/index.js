@@ -245,7 +245,7 @@ const Donations = () => {
                         Donations are essential for us
                     </p>
                     <p className={styles.subtext}>
-                        Using apps and visiting websites and channels are great ways to support but there are others as well. Lots of help is needed in many areas throughout the country and the amount got from these aren't enough. That's why we must donate as much as we can every now and then to claim our victory faster.
+                        Using apps and visiting websites and channels are great ways to support but there are others as well. Lots of help is needed in many areas throughout the country and the amount got from these aren&apos;t enough. That&apos;s why we must donate as much as we can every now and then to claim our victory faster.
                     </p>
                     <button className={styles.button}>
                         <div onClick={() => scrollToSection('map')}> Explore donations</div>
@@ -259,7 +259,7 @@ const Donations = () => {
                         Weaponry, ammunitions and supplies
                     </div>
                     <div className={styles.text}>
-                        Wars are happening throughout the country everyday and our brave comrades have to fight regardless of their age and gender. With bravery and justice on our side, we are winning but some of our comrades have fallen due to disadvantage in weaponries and ammunitions and lack of supplies. The only way they can get them in through our help. That's why we must donate more to prevent more deaths and injuries of our comrades and for the sake of our fallen comrades as well.
+                        Wars are happening throughout the country everyday and our brave comrades have to fight regardless of their age and gender. With bravery and justice on our side, we are winning but some of our comrades have fallen due to disadvantage in weaponries and ammunitions and lack of supplies. The only way they can get them in through our help. That&apos;s why we must donate more to prevent more deaths and injuries of our comrades and for the sake of our fallen comrades as well.
                     </div>
                     <div className={styles.text2}>
                         We can donate to some directly or through individuals or organizations who are doing as much as they can to support not just our PDFs in rural areas but also UGs who are working underground in major cities.
@@ -275,7 +275,7 @@ const Donations = () => {
                         Food, shelter and needs for our war victims
                     </div>
                     <div className={styles.text}>
-                        As wars progress, more and more people including women, old prople and children are becoming the victims of them. It is because of these inhumane bastards destroying every village they could find, dropping bombs on them, burning the whole village, catching and burning a lot of innocent people alive, raping and torturing many women and killing even children as well. These savages won't stop until they are put down for good. Because of them, thousands of innocent people have lost their home and love ones and the number keep rising everyday.
+                        As wars progress, more and more people including women, old prople and children are becoming the victims of them. It is because of these inhumane bastards destroying every village they could find, dropping bombs on them, burning the whole village, catching and burning a lot of innocent people alive, raping and torturing many women and killing even children as well. These savages won&apos;t stop until they are put down for good. Because of them, thousands of innocent people have lost their home and love ones and the number keep rising everyday.
                     </div>
                     <div className={styles.text2}>
                         We must save our own people by giving any form of help and warmth we can.
@@ -329,7 +329,7 @@ const Donations = () => {
                         </div>
                         <div className={styles.para}>
                             <span className={styles.first_letter}>Victims of war </span>
-                            are deserting their home villages and towns which of most are burnt to dust and running for their lives and seeking for shelter in lots of areas all around the country. These include many children, women and old people and many of them don't have necessary support.
+                            are deserting their home villages and towns which of most are burnt to dust and running for their lives and seeking for shelter in lots of areas all around the country. These include many children, women and old people and many of them don&apos;t have necessary support.
                         </div>
                     </div>
                 </div>
@@ -359,8 +359,6 @@ const Donations = () => {
 
                 </div>
             </div>
-
-
         </div >
     );
 }
