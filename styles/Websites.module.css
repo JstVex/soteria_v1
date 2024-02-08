@@ -80,6 +80,8 @@
 
 .warn_text {
     margin-bottom: auto;
+    font-size: 0.9rem;
+    text-transform: capitalize;
 }
 
 .card2 {

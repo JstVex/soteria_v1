@@ -13,7 +13,7 @@ const Lastestwebs = ({ web }) => {
         )
     }
     return (
-        <a href={web.urls[0]} target="_blank">
+        <a href={web.urls[0]} target="_blank" rel="noreferrer">
             <div className={styles.card}>
                 <Image src={web.imgs[0]} alt="" className={styles.img} width={1000} height={1000} />
                 <p className={styles.title}>{web.titles[0]}</p>

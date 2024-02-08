@@ -47,7 +47,7 @@ const Modal = ({ setSelectedTitle, selectedTitle, selectedImg, selectedStartDate
                     })}
                 </div>
                 <button className={styles.button}>
-                    <a href={selectedUrl} target="_blank">
+                    <a href={selectedUrl} target="_blank" rel="noreferrer">
                         <span className={styles.btn_text}>donate</span>
                     </a>
                 </button>

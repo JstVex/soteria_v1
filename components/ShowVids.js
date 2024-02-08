@@ -13,7 +13,7 @@ const ShowVids = ({ vid, i }) => {
                     <span className={styles.dot}>.</span>
                     <span className={styles.date}>{vid.dates[i]}</span>
                 </div>
-                <a href={vid.urls[i]} target="_blank" ><BsFillPlayFill className={styles.play} /></a>
+                <a href={vid.urls[i]} target="_blank" rel="noreferrer"><BsFillPlayFill className={styles.play} /></a>
             </div>
         </div>
     );

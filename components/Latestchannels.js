@@ -15,7 +15,7 @@ const Latestchannels = ({ channel }) => {
                     <span className={styles.dot}>.</span>
                     <span className={styles.name}>{channel.channel}</span>
                 </div>
-                <a href={channel.urls[0]} target="_blank" ><BsFillPlayFill className={styles.play} /></a>
+                <a href={channel.urls[0]} target="_blank" rel="noreferrer"><BsFillPlayFill className={styles.play} /></a>
             </div>
         </div>
     );

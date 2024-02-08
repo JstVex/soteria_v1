@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const res = await fetch(`https://soteria-backend-alc9.onrender.com/websites/${params.website}`)
+    const res = await fetch(`http://localhost:4004/websites/${params.website}`)
     const posts = await res.json()
 
     return { props: { posts } }

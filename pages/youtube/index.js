@@ -5,7 +5,6 @@ import Latestchannels from '../../components/LatestChannels';
 
 const Youtube = ({ channels }) => {
     const [utube, setUtube] = useState('');
-    console.log(channels)
 
     return (
         <div className={styles.container}>
@@ -50,7 +49,7 @@ const Youtube = ({ channels }) => {
 }
 
 export async function getStaticProps() {
-    const res = await fetch(`https://soteria-backend-alc9.onrender.com/channels`);
+    const res = await fetch(`http://localhost:4004/channels`);
     const channels = await res.json();
     return { props: { channels } }
 }

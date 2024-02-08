@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const ShowPosts = ({ post, i }) => {
     return (
-        <a href={post.urls[i]} target="_blank">
+        <a href={post.urls[i]} target="_blank" rel="noreferrer">
             <div className={styles.card2}>
                 <Image src={post.imgs[i]} alt="" className={styles.img} width={1000} height={1000} />
                 <p className={styles.title}>{post.titles[i]}</p>
