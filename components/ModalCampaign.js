@@ -52,8 +52,8 @@ const ModalCampaign = ({ setSelectedTitle, selectedTitle, selectedImg, selectedS
                 </div>
                 <div className={styles.info}>
                     <span>payment methods - </span>
-                    {selectedPayment.map((payment) => {
-                        return <span>{payment} </span>
+                    {selectedPayment.map((payment, index) => {
+                        return <span key={index}>{payment}</span>
                     })}
                 </div>
                 <button className={styles.button}>
